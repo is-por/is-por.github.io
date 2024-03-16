@@ -1,0 +1,124 @@
+@charset "utf-8";
+@font-face {
+    font-family: TheRedlightFree;
+    src: url(fuentes/TheRedlightFree.otf);
+}
+@font-face {
+    font-family: Roboto;
+    src: url(fuentes/Roboto-Regular.ttf);
+}
+@font-face{
+	font-family: Tahu;
+	src: url(fuentes/Tahu.ttf);
+}
+
+/* CSS Document */
+
+html{
+	height: 100%;
+}
+
+body{
+	margin: 0 auto;
+	display: block;
+	height: 100%;
+	background-color: rgb(21, 32, 43);
+	color: rgb(247, 249, 249);
+	font-family: Roboto;
+	/*overflow: hidden;*/
+}
+
+.default-text{
+	color: rgb(139, 152, 165);
+}
+
+.container{
+	
+	position: relative;
+	box-sizing: border-box;
+	height: 100%;
+	float: left; 
+	display: inline-block;
+}
+
+.content{
+	top: 0px;
+	height: 100%;
+	
+	
+}
+
+.left{
+	background-color: rgb(210, 32, 43, 0.1);
+	width: 20%;	
+}
+
+.main{
+	background-color: rgb(21, 302, 43, 0.1);
+	width: 60%;
+}
+
+.right{
+	background-color: rgb(21, 32, 243, 0.1);
+	width: 20%;
+}
+
+header{
+	font-family: TheRedlightFree;
+	text-align: center;
+	background-color: #333333;
+	color:white;
+	padding: 5px;
+	font-size: 35px;
+	letter-spacing: 5px;
+}
+
+header h1{
+	cursor: pointer;
+}
+
+h2{
+	text-align: left;
+	margin: 0 auto;
+	font-family: Tahu;
+	font-size: 40pt;
+}
+
+button{
+	font-family: Roboto;
+	padding: 16px;
+	color:black;
+	font-size:14px;
+	background-color: #90FF2B;
+	padding: 8px;
+	border: 1px solid black;
+	border-radius: 0px;
+	transition: background-color 0.5s, color 0.5s;
+}
+
+button.nav{
+	background-color: #333333;
+	border: none;
+	padding: 16px;
+	color:white;
+}
+
+button:hover{
+	cursor: pointer;
+	background-color: #000000;
+	color: white;
+}
+
+.nav{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+footer{
+	background-color: #333333;
+	color: white;
+	text-align: center;
+	padding:10px;
+	margin-top: 0px;
+}
+
