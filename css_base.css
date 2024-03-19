@@ -49,17 +49,19 @@ body{
 }
 
 .left{
-	background-color: rgb(210, 32, 43, 0.1);
+	/*background-color: rgb(210, 32, 43, 0.1);*/
 	width: 20%;	
 }
 
 .main{
-	background-color: rgb(21, 302, 43, 0.1);
+	/*background-color: rgb(21, 302, 43, 0.1);*/
 	width: 60%;
+	border-left: 1px solid rgb(56, 68, 77);
+	border-right: 1px solid rgb(56, 68, 77);
 }
 
 .right{
-	background-color: rgb(21, 32, 243, 0.1);
+	/*background-color: rgb(21, 32, 243, 0.1);*/
 	width: 20%;
 }
 
