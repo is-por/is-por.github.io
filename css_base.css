@@ -44,7 +44,7 @@ body{
 .content{
 	top: 0px;
 	height: 100%;
-	
+	padding: 20px 10%
 	
 }
 
@@ -84,15 +84,59 @@ h2{
 	font-size: 40pt;
 }
 
-button{
+tr{
+	width: 100%;
+	display: flex;
+	padding: 5px 0;
+}
+
+th, td{
+	width: 100%;
+	align-self:center;
+	padding-left: 10px;
+}
+
+.icon{
+	color: rgba(247,249,249,1.00);
+	fill: currentcolor;
+	align-self: center;
+	width:12%;
+}
+
+.menu_button{
+	padding: 0 1.5em;
+    /*border: 1px solid #333333;*/
+    border-radius: 9999px;
+    display: flex;
+    width: 80%;
+	text-decoration:none;
+}
+
+.menu_text{
+	padding-right: 10px;
+    /* font-size: larger; */
+    color: rgb(247, 249, 249);
+    font-family: Roboto;
+    font-weight: normal;
+    align-self: center;
+    padding-left: 20px;
+	
+}
+
+.commit_button{
+	width: 100%;
+	min-width: 52px;
+	min-height: 52px;
 	font-family: Roboto;
-	padding: 16px;
-	color:black;
-	font-size:14px;
-	background-color: #90FF2B;
+	font-weight: bold;
+	padding: 32px;
+	color:white;
+	font-size: larger;
+	background-color: rgb(29, 155, 240);
 	padding: 8px;
-	border: 1px solid black;
-	border-radius: 0px;
+	/*border: 1px;*/
+	border-color: rgba(0, 0, 0, 0);
+	border-radius: 9999px;
 	transition: background-color 0.5s, color 0.5s;
 }
 
@@ -106,6 +150,12 @@ button.nav{
 button:hover{
 	cursor: pointer;
 	background-color: #000000;
+	color: white;
+}
+
+a:hover{
+	cursor: pointer;
+	background-color: rgba(247, 249, 249, 0.1);
 	color: white;
 }
 
