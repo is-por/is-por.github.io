@@ -125,9 +125,9 @@
 }
 
 .footer_post p{
-	left: 20px;
+	margin: 1px 3px;
     display: inline;
-    position: relative;
+    position: absolute;
 	
 }
 
@@ -136,12 +136,20 @@
 	height: 35px;
     width: 35px;
     border-radius: 50px;
-	margin: 2px 0;
-	
-	/*border: 0;*/
-	
+	margin: 2px 50px 2px 0px;
+	border: 0;
 	background-color: rgba(0,0,0,0);
 	color: currentColor;
+}
+
+.footer_post button:hover{
+	
+	background-color: rgba(26, 140, 216, 0.1);
+	color: rgb(26, 140, 216);
+}
+
+.footer_post svg{
+	width: 15px;
 }
 
 
