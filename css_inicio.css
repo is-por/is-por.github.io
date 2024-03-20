@@ -35,7 +35,7 @@
 #profile_reactions{
 	top:5px;
 	padding-left: 25%;
-    height: 100px;
+    height: 100%;
     position: relative;
     align-items: center;
     display: block;
@@ -229,8 +229,8 @@
 	max-height: 320px;
 }
 
-
-@media (max-width:800px){
+/*
+@media (max-width:700px){
 	#imagenes img{
 		height: 175px;
 		width: 250px;
@@ -244,8 +244,11 @@
 	#info_personal img{
 		max-height: 125px;
 	}
-	
-	.left{ display: none; }
-	.right{ display: none; }
-	.main { width: 100%; }
-} 
+} */
+
+@media only screen and (max-width: 768px){
+	#profile_pic_block{width: 100px; height: 100px;}
+	#profile_reactions { padding: 0;}
+	.reaction_button { min-width: 0px; min-height: 20px; max-height: 20px; }
+	.reaction_button p{ font-size: smaller; padding:0 0.5em; }
+}

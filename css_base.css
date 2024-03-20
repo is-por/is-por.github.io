@@ -196,3 +196,8 @@ footer{
 	margin-top: 0px;
 }
 
+@media only screen and (max-width: 768px){
+	.left{ display: none; }
+	.right{ display: none; }
+	.main { width: 100%; }
+}
