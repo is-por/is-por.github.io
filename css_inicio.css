@@ -230,7 +230,7 @@
 }
 
 
-@media (max-width:700px){
+@media (max-width:800px){
 	#imagenes img{
 		height: 175px;
 		width: 250px;
@@ -244,4 +244,8 @@
 	#info_personal img{
 		max-height: 125px;
 	}
+	
+	.left{ display: none; }
+	.right{ display: none; }
+	.main { width: 100%; }
 } 
