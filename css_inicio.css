@@ -108,38 +108,6 @@
 	padding: 5px 0;
 }
 
-.reaction_button{
-	align-self: flex-start;
-    border-radius: 50px;
-    display: inline-flex;
-    min-width: 150px;
-    min-height: 40px;
-    border: 0;
-	margin: 0 10px;
-}
-
-.reaction_button svg{
-	width: 30px;
-    /*fill: currentcolor;
-    align-self: center;*/
-}
-
-.reaction_button p{
-	padding: 0 10px;
-    align-self: center;
-    text-align: center;
-    vertical-align: middle;
-    margin: 0;
-	font-size: larger;
-    font-weight: bold;
-    color: currentcolor;
-}
-
-.reaction_button:hover{
-	cursor: pointer;
-	background-color: rgb(0, 186, 124);
-	color: rgb(247, 249, 249);
-}
 
 .post_block{
 	display: flex;
@@ -150,6 +118,14 @@
 .post_block:hover{
 	cursor: pointer;
 	background-color: rgba(247, 249, 249, 0.1);
+}
+
+.post_title{
+	color: rgb(139, 152, 165);
+}
+
+.post_title b{
+	/*color: inherit;*/
 }
 
 

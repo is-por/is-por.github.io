@@ -16,6 +16,7 @@
 
 html{
 	height: 100%;
+	color-scheme: dark;
 }
 
 body{
@@ -25,11 +26,16 @@ body{
 	background-color: rgb(21, 32, 43);
 	color: rgb(247, 249, 249);
 	font-family: Roboto;
-	/*overflow: hidden;*/
+	overflow: hidden;
+	scrollbar-color: rgb(92, 110, 126) rgb(30, 39, 50);
 }
 
 .default-text{
 	color: rgb(139, 152, 165);
+}
+
+.white-text{
+	color:rgb(247, 249, 249);
 }
 
 .container{
@@ -59,6 +65,8 @@ body{
 	width: 60%;
 	border-left: 1px solid rgb(56, 68, 77);
 	border-right: 1px solid rgb(56, 68, 77);
+	overflow-y: auto;
+	overflow-x: inherit;
 }
 
 .right{
@@ -141,6 +149,12 @@ th, td{
 	border-color: rgba(0, 0, 0, 0);
 	border-radius: 9999px;
 	transition: background-color 0.5s, color 0.5s;
+}
+
+button{
+	background-color: rgb(247, 249, 249);
+	color:rgb(21, 32, 43);
+	transition: background-color 0.2s, color 0.2s, background-image 0.2s;
 }
 
 button.nav{

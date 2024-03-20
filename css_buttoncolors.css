@@ -1,0 +1,78 @@
+.reaction_button{
+	align-self: flex-start;
+    border-radius: 50px;
+    display: inline-flex;
+    min-width: 150px;
+    min-height: 40px;
+    border: 1px solid rgba(0,0,0,0);
+	margin: 0 10px;
+}
+
+.reaction_button svg{
+	width: 30px;
+    /*fill: currentcolor;
+    align-self: center;*/
+}
+
+.reaction_button p{
+	padding: 0 10px;
+    align-self: center;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+	font-size: larger;
+    font-weight: bold;
+    color: currentcolor;
+}
+
+.pressed{
+	background-color: rgb(247, 249, 249);
+}
+
+.not-pressed{
+	background-color: rgba(247, 249, 249, 0.1);
+	border: 1px solid white;
+	color: rgb(247, 249, 249);
+}
+
+.pressed.red
+{
+	background-color: rgb(249, 24, 128);/*lightcoral;*/
+	color: rgb(247, 249, 249);
+}
+
+.pressed.rainbow{
+	
+	background: linear-gradient(90deg, rgba(180,58,58,1) 0%, rgba(253,252,69,1) 16%, rgba(29,253,29,1) 33%, rgba(29,253,253,1) 49%, rgba(29,29,253,1) 66%, rgba(255,29,253,1) 83%, rgba(255,29,29,1) 100%);
+	color: rgb(21, 32, 43);
+}
+
+.pressed.blue
+{
+	background-color: rgb(130,255,255);
+	color: rgb(21, 32, 43);
+}
+
+.pressed.brown
+{
+	background-color: lightslategray;
+	color: rgb(247, 249, 249);
+}
+
+.pressed.yellow
+{
+	background-color: rgb(255,255,100);
+	color: rgb(21, 32, 43);
+}
+
+.pressed.pink
+{
+	background-color: rgb(255,200,150);
+	color: rgb(21, 32, 43);
+}
+
+.reaction_button:hover{
+	cursor: pointer;
+	background-color: rgb(0, 186, 124);
+	color: rgb(247, 249, 249);
+}
