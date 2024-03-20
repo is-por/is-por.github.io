@@ -35,6 +35,7 @@
 	color: rgb(247, 249, 249);
 }
 
+
 .pressed.red
 {
 	background-color: rgb(249, 24, 128);/*lightcoral;*/
@@ -69,6 +70,22 @@
 {
 	background-color: rgb(255,200,150);
 	color: rgb(21, 32, 43);
+}
+
+.footer_post button:hover{
+	
+	background-color: rgba(26, 140, 216, 0.1);
+	color: rgb(26, 140, 216);
+}
+
+.footer_post .red:hover{
+	background-color: rgba(249, 24, 128, 0.1);
+	color: rgb(249, 24, 128);
+}
+
+.footer_post .green:hover{
+	background-color: rgba(0, 186, 124, 0.1);
+	color: rgb(0, 186, 124);
 }
 
 .reaction_button:hover{

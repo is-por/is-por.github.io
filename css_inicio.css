@@ -150,11 +150,6 @@
 	color: currentColor;
 }
 
-.footer_post button:hover{
-	
-	background-color: rgba(26, 140, 216, 0.1);
-	color: rgb(26, 140, 216);
-}
 
 .footer_post svg{
 	width: 20px;
