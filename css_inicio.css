@@ -15,7 +15,7 @@
 .profile_bio{
 	border-bottom: 1px solid rgb(56, 68, 77);
     position: relative;
-    padding-left: 30px;
+    padding: 0 30px;
 }
 
 #profile_name{
@@ -124,9 +124,28 @@
 	color: rgb(139, 152, 165);
 }
 
-.post_title b{
-	/*color: inherit;*/
+.footer_post p{
+	left: 20px;
+    display: inline;
+    position: relative;
+	
 }
+
+.footer_post button{
+	
+	height: 35px;
+    width: 35px;
+    border-radius: 50px;
+	margin: 2px 0;
+	
+	/*border: 0;*/
+	
+	background-color: rgba(0,0,0,0);
+	color: currentColor;
+}
+
+
+
 
 
 .contenedor_imgs {
