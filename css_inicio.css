@@ -12,11 +12,24 @@
 	height: auto;
 }
 
-#profile_bio{
+.profile_bio{
 	position: relative;
+	left: 30px;
+}
+
+#profile_name{
+	display: flex;
     font-weight: bold;
     font-size: xx-large;
-    left: 30px;
+    margin-bottom: 0;
+}
+
+#profile_account{
+	
+    font-weight: lighter;
+    color: rgb(139, 152, 165);
+	margin: 0;
+    
 }
 
 #profile_reactions{
@@ -39,6 +52,28 @@
     /* border-width: 51px; */
     z-index: 1;
     position: absolute;
+}
+
+#profile_bio_text{
+	margin:25px auto;
+}
+
+#profile_bio_text p{
+	margin:0;
+}
+
+#profile_bio_links{
+	display: flex;
+	margin: 1.5em 0;
+}
+
+#profile_bio_links svg{
+	color:rgb(139, 152, 165);
+	width: 15px;
+}
+
+#profile_bio_links a{
+	padding: 0 1em;
 }
 
 .profile_img{
@@ -72,8 +107,9 @@
 }
 
 .reaction_button svg{
-	width: 35px;
-	fill: currentcolor;
+	width: 30px;
+    /*fill: currentcolor;
+    align-self: center;*/
 }
 
 .reaction_button p{
