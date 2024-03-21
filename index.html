@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="css_inicio.css" type="text/css">
 <link rel="stylesheet" href="css_buttoncolors.css" type="text/css">
 <link rel="shortcut icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAA0pJREFUWAntVk1oE1EQnnlJbFK3KUq9VJPYWgQVD/5QD0qpfweL1YJQoZAULBRPggp6kB78PQn14kHx0jRB0UO9REVFb1YqVBEsbZW2SbVS0B6apEnbbMbZ6qbZdTempqCHPAjvzcw3P5mdmfcAiquYgX+cAVwu/+5AdDMQnSPCHUhQA0hf+Rxy2OjicIvzm+qnKhito0qpb2wvJhWeJgCPP7oPELeHvdJ1VSGf3eOPnSWga0S0Qo9HxEkEusDBuNjbEca8G291nlBxmgDc/ukuIvAJxI6wr+yKCsq1ewLxQ2lZfpQLo8oQ4ZXdCkfnACrGWpyDCl+oQmVn5xuVPU102e2P3qoJkFOhzVb9S7KSnL5jJs/mI+As01PJFPSlZeFSZZoAGBRXBZyq9lk5NrC+e7pJ5en30c+JWk59pZ5vRDOuhAD381c/H/FKz1SMNgCE16rg505r5TT0uLqme93d0fbq+1SeLSeU83Ke0RHYFPGVPcjQfNDUwIa7M665+dQAEEjZoMwZMcEF9RxIDAgBQ2mCcqJ0Z0b+h4MNbZ4RnyOSDbNmE2iRk5jCNgIIckFoZAs4IgfLGrlKGjkzS16iwj6pV9I4mUvCPf73JVytH9nRJj24QHrqU8NCIWrMaGqAC+Ut/3ZzAS63cx4v2K/x/IvQBOCwWzu5KmJGwEJ5PIgeG9nQBDDcXPpFoDjJ7ThvBC6EZxXWkJG+JgAFwGM4KBAOcibeGCn8FQ/hyajXPmSk+1sACogn4hYk7OdiHDFSWipPkPWSmY6mCzIghEEuxJvcEYUvxIdhX2mvmSHDDPBF9AJRnDZTyp+P40671JYLbxiAohDxSTfQIg4oNxgPzCWPHaWQBViOf2jGqVwBaEaxGbAqOFMrp+SefC8eNhoFIY5lXzpmtnMGUB2IbU3JdIqVW9m5zcxINn/hAYKiIexdaTh4srHKORMAP0b28PNgJyGt5gvHzQVYx91QpVcwpRFl/p63HSR1DLbid1OcTpAJQOG7u+KH+aI5Qwj13IsamU5vkUSIc8uGLDa8OtoivV8U5HcydFLtT7hlSDVy2nfxI2Ibg9awuVU8IeJAOMF5m2B6jFs1tM5R9rS3GRP5uSuiihn4DzPwA7z7GDH+43gqAAAAAElFTkSuQmCC">
-<title>Twerispor</title>
+<title>Blorb / Eris</title>
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 <body>
@@ -53,7 +53,7 @@
 	</a></th>
   </tr>
   <tr>
-    <td colspan="2"><button class="commit_button">Twistear</button></td>
+    <td colspan="2"><button class="commit_button">Blorbear</button></td>
   </tr>
 
 </table>
@@ -65,35 +65,7 @@
 	</div>
 	<div id="profile_reactions">
 	<div class="profile_react_row">
-	<script>
-	/*
-	function button_switcher(element)
-	{
-		var pressed = element.classList.contains("pressed");	
-		pressed ? element.classList.remove("pressed") : element.classList.add("pressed");
-		pressed ? element.classList.add("not-pressed") : element.classList.remove("not-pressed");
-		return !pressed;
-	}
 	
-	function follow_button(element)
-	{
-		var pressed = button_switcher(element);
-		
-		var texts = element.getElementsByTagName("p");
-		console.log(texts)
-		texts[0].innerHTML = pressed ? "Seguir" : "Siguiendo";
-	}
-	
-	function engagement_button(element)
-	{
-		var pressed = button_switcher(element);
-		console.log(pressed)
-		var texts = element.getElementsByClassName("engagement_number");
-		console.log(texts)
-		texts[0].innerHTML = pressed ? Number(texts[0].innerHTML) + 1 : Number(texts[0].innerHTML) - 1;
-	}
-	*/
-	</script>
 	<button onclick="follow_button(this)" class="reaction_button pressed"><p style="text-align:center; width:100%">Seguir</p></button>
 		<button onclick="engagement_button(this)" class="reaction_button red not-pressed"><svg class="fillable_form" viewBox="0 0 24 24"><path d="M20.884 13.19c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"></path></svg><p>Me gusta</p><p class="engagement_number">252</p></button>
 		
@@ -228,7 +200,13 @@
 	
 </div></div>
 
-<div class="container right"><div class="content"><p>Hola putas</p></div></div>
+<div class="container right">
+<div class="content">
+	<input type="text" placeholder="Hola putas">
+	<p>Hola putas</p>
+</div>
+
+</div>
 </body>
 <script src="js/main.js"></script>
 </html>
