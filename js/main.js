@@ -88,7 +88,7 @@ fetch(url)
 		var trend_fields = document.getElementsByClassName("wiki_article");
         for (var r in randoms) {
             console.log(randoms[r]);
-			trend_fields[r].href = base_url+"/?curid="+randoms[r].id;
+			trend_fields[r].href = base_url+"?curid="+randoms[r].id;
 			trend_fields[r].innerHTML = randoms[r].title;
         }
     })
