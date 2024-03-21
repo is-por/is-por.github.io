@@ -175,7 +175,42 @@
 	left: 105%;*/
 }
 
+.wiki_trends
+{
+	background-color:rgb(30, 39, 50);
+	padding: 0;
+	border-radius:16px;
+}
 
+.wiki_trends h2
+{
+	padding:15px;
+}
+
+.flair{
+	margin: 0;
+	font-weight: 500;
+    font-size: small;
+}
+
+.wiki{
+	margin: 8px 0;;
+}
+
+.wiki_article{
+	display: block;
+	align-items:center;
+    padding: 15px;
+    height: 100%;
+	min-height:40px;
+	color: rgb(247, 249, 249);
+	font-weight: 600;
+}
+
+.wiki_article:hover{
+	background-color: rgba(255, 255, 255, 0.03);
+	text-decoration: none;
+}
 
 
 .contenedor_imgs {

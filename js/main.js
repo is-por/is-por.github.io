@@ -63,9 +63,6 @@ window.onload = (event) =>
 }
 
 
-/**
-wikipedia
-**/
 
 var base_url = "https://es.wikipedia.org/"; 
 var url = base_url + "/w/api.php"; 
@@ -89,7 +86,9 @@ fetch(url)
         for (var r in randoms) {
             console.log(randoms[r]);
 			trend_fields[r].href = base_url+"?curid="+randoms[r].id;
-			trend_fields[r].innerHTML = randoms[r].title;
+			var article = trend_fields[r].getElementsByClassName("wiki");
+			article[0].innerHTML = randoms[r].title;
         }
     })
     .catch(function(error){console.log(error);});
+	
