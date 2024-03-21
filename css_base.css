@@ -250,6 +250,24 @@ svg{
 	margin-right: 20px;
 }
 
+.searchbar{
+	margin-top: -15px;
+	border-radius: 50px;
+	border: 0;
+	width: 90%;
+	min-height: 40px;
+	background-color: rgb(39, 51, 64);
+	padding-left: 10%;
+	margin-bottom: 15px;
+	font-size:inherit;
+}
+
+.searchbar:focus{
+	outline:none;
+	border: 1px solid rgb(29, 155, 240) !important;
+	background-color: rgba(21,32,43,1.00);
+}
+
 footer{
 	background-color: #333333;
 	color: white;

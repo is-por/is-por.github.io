@@ -55,10 +55,13 @@ window.onload = (event) =>
 {
 	console.log("document.onload");
 	var engagement_numbers = document.getElementsByClassName("engagement_number");
-	
-	for (let i in engagement_numbers)
+
+	for (let i = 0; i < engagement_numbers.length; i++)
 	{
-		engagement_numbers[i].innerHTML = format_number(randn_bm(0, 9999, 9));
+		var min = 0;
+		if(engagement_numbers[i].classList.contains("non-zero")) min = 1;
+
+		engagement_numbers[i].innerHTML = format_number(randn_bm(min, 9999, 9));
 	}
 }
 
