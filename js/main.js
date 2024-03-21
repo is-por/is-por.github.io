@@ -53,7 +53,7 @@ function randn_bm(min, max, skew) {
 
 window.onload = (event) =>
 {
-	console.log("document.onload");
+	//console.log("document.onload");
 	var engagement_numbers = document.getElementsByClassName("engagement_number");
 
 	for (let i = 0; i < engagement_numbers.length; i++)
@@ -82,12 +82,13 @@ Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];}
 
 fetch(url)
     .then(function(response){return response.json();})
-    .then(function(response) {
-		console.log(response);
+    .then(function(response) 
+	{
         var randoms = response.query.random;
 		var trend_fields = document.getElementsByClassName("wiki_article");
-        for (var r in randoms) {
-            console.log(randoms[r]);
+		
+        for (var r in randoms) 
+		{
 			trend_fields[r].href = base_url+"?curid="+randoms[r].id;
 			var article = trend_fields[r].getElementsByClassName("wiki");
 			article[0].innerHTML = randoms[r].title;
