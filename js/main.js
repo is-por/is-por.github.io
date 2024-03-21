@@ -61,3 +61,35 @@ window.onload = (event) =>
 		engagement_numbers[i].innerHTML = format_number(randn_bm(0, 9999, 9));
 	}
 }
+
+
+/**
+wikipedia
+**/
+
+var base_url = "https://es.wikipedia.org/"; 
+var url = base_url + "/w/api.php"; 
+var params = {
+    action: "query",
+    format: "json",
+    list: "random",
+    rnlimit: document.getElementsByClassName("wiki_article").length,
+	rnnamespace : "0"
+};
+
+url = url + "?origin=*";
+Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+
+fetch(url)
+    .then(function(response){return response.json();})
+    .then(function(response) {
+		console.log(response);
+        var randoms = response.query.random;
+		var trend_fields = document.getElementsByClassName("wiki_article");
+        for (var r in randoms) {
+            console.log(randoms[r]);
+			trend_fields[r].href = base_url+"/?curid="+randoms[r].id;
+			trend_fields[r].innerHTML = randoms[r].title;
+        }
+    })
+    .catch(function(error){console.log(error);});
