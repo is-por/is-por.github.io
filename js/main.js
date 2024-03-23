@@ -63,9 +63,11 @@ window.onload = (event) =>
 
 		engagement_numbers[i].innerHTML = format_number(randn_bm(min, 9999, 9));
 	}
+	
+	carga_tuits();
 }
 
-
+//Wikipedia
 
 var base_url = "https://es.wikipedia.org/"; 
 var url = base_url + "/w/api.php"; 
@@ -96,3 +98,22 @@ fetch(url)
     })
     .catch(function(error){console.log(error);});
 	
+//Carga txt
+
+
+function carga_tuits()
+{
+	var html = document.querySelector('link[rel="import"]').href;
+	
+	fetch(html).then(function(response)
+	{
+		console.log(response)
+	})
+    .catch(function(error){console.log(error);});
+	
+	
+	
+	//var tweet = html.getElementsById("tweet_content");
+	
+	//console.log(tweet)
+}
