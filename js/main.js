@@ -107,9 +107,11 @@ function carga_tuits()
 	
 	fetch(html).then(function(response)
 	{
-		console.log(response)
+		return response.text();
+	}).then(function(data) {
+		console.log(data); // this will be a string
 	})
-    .catch(function(error){console.log(error);});
+	.catch(function(error){console.log(error);});
 	
 	
 	
