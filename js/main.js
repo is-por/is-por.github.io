@@ -125,7 +125,7 @@ function carga_tuits(file)
 		for(let i = 0; i < json.imagenes.length; i++)
 		{
 			let img = document.createElement("img");
-			img.src = json.imagenes[i]
+			img.src = json.imagenes[i];
 			image_block.appendChild(img);
 		}
 		
