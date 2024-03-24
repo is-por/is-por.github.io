@@ -139,13 +139,10 @@ function carga_tuits(file)
 		texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br>");
 		tweet.innerHTML = texto;
 		
-		console.log(texto)
-		
 		//images
 		let image_block = plantilla.getElementsByClassName("tweet_images")[0];
 		for(let i = 0; i < json.imagenes.length; i++)
 		{
-			console.log(json.imagenes[i])
 			let img = document.createElement("img");
 			img.src = json.imagenes[i];
 			image_block.appendChild(img);
@@ -172,10 +169,8 @@ function carga_config()
 	
 	fetch(config_file).then(function(response)
 	{
-		console.log(response)
 		return response.json();
 	}).then(function(json) {
-		console.log(json)
 		
 		display_name = json.display_name;
 		user_name = json.user_name;
@@ -184,7 +179,6 @@ function carga_config()
 		
 		for(let i in json.tweets)
 		{
-			console.log(json.tweets[i])
 			carga_tuits(json.tweets[i])
 		}
 	})
@@ -244,7 +238,6 @@ function format_date(root_elm)
 			format_date = "Hoy"
 		}
 		else{
-			console.log(date)
 			let options = { month: 'short', day: 'numeric' };
 			
 			let date_obj = new Date(date);
