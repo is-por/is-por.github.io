@@ -1,11 +1,8 @@
 {
 "fecha" : "2024-03-24",
 
-"texto":
-{
-"tuit de prueba \r\njaja xd"
-},
+"texto": "tuit de prueba \r\njaja xd",
 
-"imagenes" : {"media/cagaste.jpg", "media/cagaste.jpg"}
+"imagenes" : ["media/cagaste.jpg", "media/cagaste.jpg"]
 
 }
