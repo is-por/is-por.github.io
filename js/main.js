@@ -106,13 +106,11 @@ function carga_tuits(file)
 	{
 		console.log(response)
 		console.log(response.headers.get('Last-Modified'));
-		let obj = {};
-		obj.data = response.text();
-		obj.modified = response.headers.get('Last-Modified');
-		return obj;
-	}).then(function(response) {
-		console.log(response)
-		let data = response.data;
+
+		var modified = response.headers.get('Last-Modified');
+		return response.text();
+	}).then(function(data) {
+		console.log(modified)
 		let orig = document.getElementsByClassName("post_block")[0];
 		let plantilla = orig.cloneNode(true);
 
@@ -127,7 +125,7 @@ function carga_tuits(file)
 		
 		//date
 		let tweet_date = plantilla.getElementsByClassName("date")[0];
-		tweet_date.innerHTML = response.modified;
+		tweet_date.innerHTML = modified;
 		format_date(plantilla)
 		
 		//insert tweet
