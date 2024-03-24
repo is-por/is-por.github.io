@@ -102,12 +102,13 @@ function generate_trends()
 
 function carga_tuits(file)
 {
+	var modified;
 	fetch(file).then(function(response)
 	{
 		console.log(response)
 		console.log(response.headers.get('Last-Modified'));
 
-		var modified = response.headers.get('Last-Modified');
+		modified = response.headers.get('Last-Modified');
 		return response.text();
 	}).then(function(data) {
 		console.log(modified)
