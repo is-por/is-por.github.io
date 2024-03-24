@@ -137,23 +137,28 @@
 
 .tweet_images img:nth-child(1)
 {
-	border-radius: 25px 0 0 0;
+	border-top-left-radius: 25px;
 	margin-top: 15px;
 }
 
 .tweet_images img:nth-child(2)
 {
-	border-radius: 0 25px 0 0;
+	border-top-right-radius: 25px;
 }
 
 .tweet_images img:nth-last-child(1)
 {
-	border-radius: 0 0 25px 0;
+	border-bottom-right-radius: 25px;
 }
 
 .tweet_images img:nth-last-child(2)
 {
-	border-radius: 0 0 0 25px;
+	border-bottom-left-radius: 25px;
+}
+
+.tweet_images img:nth-last-child(odd)
+{
+	margin-left: 2px;
 }
 
 .footer_post p{
