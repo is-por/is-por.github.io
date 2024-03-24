@@ -111,6 +111,7 @@ function carga_tuits(file)
 		obj.modified = response.headers.get('Last-Modified');
 		return obj;
 	}).then(function(response) {
+		console.log(response)
 		let data = response.data;
 		let orig = document.getElementsByClassName("post_block")[0];
 		let plantilla = orig.cloneNode(true);
