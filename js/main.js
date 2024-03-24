@@ -102,31 +102,38 @@ function generate_trends()
 
 function carga_tuits(file)
 {
-	var modified;
+	//var modified;
 	fetch(file).then(function(response)
 	{
-		console.log(response)
-		console.log(response.headers.get('Last-Modified'));
+		//modified = response.headers.get('Last-Modified');
+		return response.json();
+	}).then(function(json) {
 
-		modified = response.headers.get('Last-Modified');
-		return response.text();
-	}).then(function(data) {
-		console.log(modified)
+		let texto = json.texto;
+
 		let orig = document.getElementsByClassName("post_block")[0];
 		let plantilla = orig.cloneNode(true);
 
 		let tweet = plantilla.getElementsByClassName("tweet_content")[0];
 		
 		//replace endl with <br/> tag
-		data = data.replace(/(?:\r\n|\r|\n)/g, "<br>");
-
-		tweet.innerHTML = data;
+		texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br>");
+		tweet.innerHTML = texto;
+		
+		//images
+		let image_block = plantilla.getElementsByClassName("tweet_images")[0];
+		for(let i = 0; i < json.imagenes.length; i++)
+		{
+			let img = document.createElement("img");
+			img.src = json.imagenes[i]
+			image_block.appendChild(img);
+		}
 		
 		generate_engagement(plantilla);
 		
 		//date
 		let tweet_date = plantilla.getElementsByClassName("date")[0];
-		tweet_date.innerHTML = modified;
+		tweet_date.innerHTML = json.fecha;
 		format_date(plantilla)
 		
 		//insert tweet
@@ -206,6 +213,7 @@ function format_date(root_elm)
 	{	
 		let date_text = date_fields[i].innerHTML;
 		console.log(date_text)
+		console.log(current_date)
 		let date = Date.parse(date_text)
 		
 		let diff = current_date - date;
@@ -215,12 +223,9 @@ function format_date(root_elm)
 		let daydiff = diff / (1000 * 60 * 60 * 24);   
 		console.log(daydiff)
 		let format_date = ""
-		if(daydiff < 2)
+		if(daydiff < 1)
 		{
-			let hourdiff = diff / (1000 * 60 * 60);
-			console.log(hourdiff)
-			
-			format_date = Math.floor(hourdiff) + "h";
+			format_date = "Hoy"
 		}
 		else{
 			console.log(date)
