@@ -131,6 +131,7 @@
 }
 
 .tweet_images img{
+	min-width: 25%;
 	max-width: 48%;
 
 }
