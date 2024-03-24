@@ -119,6 +119,7 @@ function carga_tuits(file)
 		tweet.innerHTML = data;
 		
 		generate_engagement(plantilla);
+		format_date(plantilla)
 		
 		//insert tweet
 		let tl = document.getElementById("timeline");
@@ -175,15 +176,74 @@ function carga_config()
 function update_username(root_elm)
 {
 	//do someting
-	console.log(user_name)
-	console.log(display_name)
+	let display_name_fields = root_elm.getElementsByClassName("display_name")
+	let user_name_fields = root_elm.getElementsByClassName("user_name")
+	
+	for(let i = 0 ; i < display_name_fields.length; i++)
+	{
+		display_name_fields[i].innerHTML = display_name;
+	}
+	
+	for(let i = 0 ; i < user_name_fields.length; i++)
+	{
+		user_name_fields[i].innerHTML = user_name;
+	}
+}
+
+function format_date(root_elm)
+{
+	let date_fields = root_elm.getElementsByClassName("date");
+	console.log(date_fields)
+	for(let i = 0 ; i < date_fields.length; i++)
+	{	
+		let date_text = date_fields[i].innerHTML;
+		console.log(date_text)
+		let date = Date.parse(date_text)
+		
+		let diff = current_date - date;
+		
+		console.log(diff)
+		
+		let daydiff = diff / (1000 * 60 * 60 * 24);   
+		console.log(daydiff)
+		let format_date = ""
+		if(daydiff < 2)
+		{
+			let hourdiff = diff / (1000 * 60 * 60);
+			console.log(hourdiff)
+			
+			format_date = Math.floor(hourdiff) + "h";
+		}
+		else{
+			console.log(date)
+			let options = { month: 'short', day: 'numeric' };
+			
+			let date_obj = new Date(date);
+			format_date = date_obj.toLocaleDateString("es-ES", options);
+			
+			format_date += ". "
+			
+			if(daydiff > 365)
+			{
+				format_date += date_obj.getFullYear();
+			}
+
+			console.log(format_date);
+		}
+		
+		date_fields[i].innerHTML = format_date;
+	}
+	
+	
+	
 }
 
 
 //Global variables
 var user_name = "@erispor1";
-var display_name = "Eris (esto es una prueba)";
+var display_name = "Eris (shits not working)";
 var config_file = "config/config.json";
+var current_date = Date.now();
 
 //Main execution cycle
 window.onload = (event) =>
@@ -196,4 +256,6 @@ window.onload = (event) =>
 	
 	//WIP: hacer solo cuando hayan cargado los tweets
 	generate_engagement(document);
+	
+	format_date(document);
 }
