@@ -63,6 +63,25 @@ function generate_engagement(root_elm)
 	}
 }
 
+
+function birthday_count()
+{
+	let base_birthday = "04-04";
+	
+	let current_birthday = base_birthday + "-" + new Date(current_date).getFullYear();
+	current_birthday = Date.parse(current_birthday);
+	
+	let diff = current_birthday - current_date;	
+	if(diff < 0)
+	{
+		current_birthday = base_birthday + "-" + (new Date(current_date).getFullYear() + 1);
+		current_birthday = Date.parse(current_birthday);
+		diff = current_birthday - current_date;	
+	}
+	
+	document.getElementById("birthday_count").innerHTML = Math.floor(diff / (1000 * 60 * 60 * 24));
+}
+
 //Wikipedia
 function generate_trends()
 {
@@ -114,8 +133,8 @@ function carga_tuits(file)
 		let orig = document.getElementsByClassName("post_block")[0];
 		let plantilla = orig.cloneNode(true);
 
-		let tweet = plantilla.getElementsByClassName("tweet_content")[0];
-		
+		let tweets = plantilla.getElementsByClassName("tweet_content")[0];
+		let tweet = tweets[tweets.length-1]
 		//replace endl with <br/> tag
 		texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br>");
 		tweet.innerHTML = texto;
@@ -211,20 +230,14 @@ function update_username(root_elm)
 function format_date(root_elm)
 {
 	let date_fields = root_elm.getElementsByClassName("date");
-	console.log(date_fields)
 	for(let i = 0 ; i < date_fields.length; i++)
 	{	
 		let date_text = date_fields[i].innerHTML;
-		console.log(date_text)
-		console.log(current_date)
 		let date = Date.parse(date_text)
 		
-		let diff = current_date - date;
-		
-		console.log(diff)
-		
+		let diff = current_date - date;		
 		let daydiff = diff / (1000 * 60 * 60 * 24);   
-		console.log(daydiff)
+
 		let format_date = ""
 		if(daydiff < 1)
 		{
@@ -243,15 +256,9 @@ function format_date(root_elm)
 			{
 				format_date += date_obj.getFullYear();
 			}
-
-			console.log(format_date);
 		}
-		
 		date_fields[i].innerHTML = format_date;
 	}
-	
-	
-	
 }
 
 
@@ -270,8 +277,10 @@ window.onload = (event) =>
 	
 	generate_trends();
 	
-	//WIP: hacer solo cuando hayan cargado los tweets
+	//engagement del perfil/tendencias
 	generate_engagement(document);
 	
 	format_date(document);
+	
+	birthday_count();
 }
