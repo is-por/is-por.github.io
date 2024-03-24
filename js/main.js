@@ -134,7 +134,10 @@ function carga_tuits(file)
 		let plantilla = orig.cloneNode(true);
 
 		let tweets = plantilla.getElementsByClassName("tweet_content")[0];
+		console.log(tweets)
 		let tweet = tweets[tweets.length-1]
+		console.log(tweet)
+		
 		//replace endl with <br/> tag
 		texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br>");
 		tweet.innerHTML = texto;
