@@ -120,10 +120,13 @@ function carga_tuits(file)
 		texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br>");
 		tweet.innerHTML = texto;
 		
+		console.log(texto)
+		
 		//images
 		let image_block = plantilla.getElementsByClassName("tweet_images")[0];
 		for(let i = 0; i < json.imagenes.length; i++)
 		{
+			console.log(json.imagenes[i])
 			let img = document.createElement("img");
 			img.src = json.imagenes[i];
 			image_block.appendChild(img);
