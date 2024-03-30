@@ -119,7 +119,7 @@ function generate_trends()
 //Carga txt
 
 
-function carga_tuits(file)
+function carga_tuits(file, index)
 {
 	//var modified;
 	fetch(file).then(function(response)
@@ -159,9 +159,25 @@ function carga_tuits(file)
 		//insert tweet
 		let tl = document.getElementById("timeline");
 		tl.insertBefore(plantilla, tl.children[0]);
+		
+		//load next tweet
+		load_all_tweets(index+1);
 	})
-	.catch(function(error){console.log(error);});
+	.catch(function(error){
+		console.log(error);
+		load_all_tweets(index+1);
+	});
 
+}
+
+function load_all_tweets(index)
+{
+	console.log("load_all_tweets "+index)
+	load_all_tweets(tweets.length)
+	if(index < tweets.length)
+	{
+		carga_tuits(tweets[index], index)
+	}
 }
 
 
@@ -178,31 +194,18 @@ function carga_config()
 		
 		update_username(document);
 		
+		tweets = json.tweets;
+		
+		load_all_tweets(0);
+		/*
 		for(let i in json.tweets)
 		{
 			carga_tuits(json.tweets[i])
 		}
+		*/
 	})
 	.catch(function(error){console.log(error);});
 	
-	/*
-	let response = '{	"display_name":"Eris (cansada de vuestras mierdas)",	"user_name":"@ispor1",	"tweets":	[		"prueba.txt", "prueba2.txt"	]}';
-	
-	console.log(response)
-	let json = JSON.parse(response);
-	
-	console.log(json)
-	
-	display_name = json.display_name;
-	user_name = json.user_name;
-	
-	update_username(document);
-	
-	for(let i in json.tweets)
-	{
-		console.log(json.tweets[i])
-		carga_tuits(json.tweets[i])
-	}*/
 }
 
 function update_username(root_elm)
@@ -261,6 +264,7 @@ var user_name = "@erispor1";
 var display_name = "Eris (shits not working)";
 var config_file = "config/config.json";
 var current_date = Date.now();
+var tweets = [];
 
 //Main execution cycle
 window.onload = (event) =>
