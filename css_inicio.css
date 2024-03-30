@@ -118,6 +118,11 @@
 	/*border-top: 1px solid rgb(56, 68, 77);*/
 }
 
+.post_right_block{
+	padding: 0 0.5em;
+	width: 100%;
+}
+
 .post_block:hover{
 	cursor: pointer;
 	background-color: rgba(255, 255, 255, 0.03);
@@ -372,4 +377,9 @@
 @media only screen and (max-width: 768px){
 	#profile_pic_block{width: 100px; height: 100px; margin-top: 0px; top: 10px}
 	#profile_reactions { padding: 0;}
+	.profile_mini_block { margin: auto; margin-top: 15px; left: 3px;}
+	.post_right_block{	width: 80%;  }
+	.footer_post button { width: auto; margin-right: 10px; }
+	.footer_post svg { width: 15px; }
+	.footer_post p { margin: 0; margin-top: 5px; display: block; position: relative; font-size: 0.9em;}
 }
