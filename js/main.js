@@ -173,7 +173,7 @@ function carga_tuits(file, index)
 function load_all_tweets(index)
 {
 	console.log("load_all_tweets "+index)
-	load_all_tweets(tweets.length)
+	console.log(tweets.length)
 	if(index < tweets.length)
 	{
 		carga_tuits(tweets[index], index)
@@ -195,6 +195,8 @@ function carga_config()
 		update_username(document);
 		
 		tweets = json.tweets;
+		
+		console.log(tweets)
 		
 		load_all_tweets(0);
 		/*
