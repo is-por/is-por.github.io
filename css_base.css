@@ -5,7 +5,7 @@
 }
 @font-face {
     font-family: Roboto;
-    src: url(fuentes/Roboto-Regular.ttf);
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap')
 }
 @font-face{
 	font-family: Tahu;
@@ -68,7 +68,7 @@ body{
 	height: 100%;
 	background-color: rgb(21, 32, 43);
 	color: rgb(247, 249, 249);
-	font-family: Roboto;
+	font-family: Roboto, TwitterChirp, Helvetica, Arial, sans-serif;
 	overflow: hidden;
 	scrollbar-color: rgb(92, 110, 126) rgb(30, 39, 50);
 }
