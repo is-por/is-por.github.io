@@ -67,19 +67,36 @@ function generate_engagement(root_elm)
 function birthday_count()
 {
 	let base_birthday = "04-04";
+	let cur_date = new Date(current_date);
 	
-	let current_birthday = base_birthday + "-" + new Date(current_date).getFullYear();
+	let current_birthday = base_birthday + "-" + cur_date.getFullYear();
 	current_birthday = Date.parse(current_birthday);
 	
 	let diff = current_birthday - current_date;	
-	if(diff < 0)
+	console.log(current_birthday)
+	console.log(current_date)
+	console.log(diff)
+	console.log(24*60*60*1000)
+	if(diff < -24*60*60*1000)
 	{
-		current_birthday = base_birthday + "-" + (new Date(current_date).getFullYear() + 1);
+		current_birthday = base_birthday + "-" + (cur_date.getFullYear() + 1);
 		current_birthday = Date.parse(current_birthday);
 		diff = current_birthday - current_date;	
 	}
 	
-	document.getElementById("birthday_count").innerHTML = Math.floor(diff / (1000 * 60 * 60 * 24));
+	let days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+	
+	console.log(days)
+	
+	if(days == 0)
+	{
+		generate_birthday_balloons();
+		console.log("balloonis")
+		let anos = cur_date.getFullYear()-1997;
+		document.getElementById("birthday_count").parentElement.innerHTML = "ESTA ZORRA CUMPLE ("+anos+") AŃOS HOY WOOOO!!!1!" ;
+	}else{
+		document.getElementById("birthday_count").innerHTML = days;
+	}
 }
 
 //Wikipedia
@@ -172,8 +189,7 @@ function carga_tuits(file, index)
 
 function load_all_tweets(index)
 {
-	console.log("load_all_tweets "+index)
-	console.log(tweets.length)
+	//load one tweet at a time to ensure correct order
 	if(index < tweets.length)
 	{
 		carga_tuits(tweets[index], index)
@@ -196,15 +212,8 @@ function carga_config()
 		
 		tweets = json.tweets;
 		
-		console.log(tweets)
-		
 		load_all_tweets(0);
-		/*
-		for(let i in json.tweets)
-		{
-			carga_tuits(json.tweets[i])
-		}
-		*/
+
 	})
 	.catch(function(error){console.log(error);});
 	
@@ -283,4 +292,55 @@ window.onload = (event) =>
 	format_date(document);
 	
 	birthday_count();
+	
+}
+
+function generate_birthday_balloons()
+{
+	let overlay = document.getElementById("overlay");
+	
+	let colors = ["deepskyblue", "lightcoral", "gold", "orange", "blueviolet", "lightgreen", "deeppink"];
+	
+	for(let i=0; i<44; i++)
+	{
+		let balloonBox = document.createElement("div");
+		balloonBox.classList.add("balloon-lift");
+		
+		balloonBox.style.left = random_number(0, 100) + "%";
+		balloonBox.style.animationDelay = Math.random() * 3 +"s";
+
+		let balloon = document.createElementNS("http://www.w3.org/2000/svg","svg");
+		balloon.setAttribute("viewBox", "0 0 24 24");
+		balloon.classList.add("balloon");
+		balloon.classList.add("balloon-wobble");
+		balloon.style.fill = colors[random_number(0, colors.length)]
+		
+		let balloonPath = document.createElementNS("http://www.w3.org/2000/svg","path");
+		balloonPath.setAttribute("d", "m9.39,0c-5.38,0 -9.62,4.12 -9.39,10.6c0.24,6.74 5.01,10.92 8.17,11.84l-0.89,1.64l4.21,0l-0.89,-1.64c3.16,-0.92 7.93,-5.1 8.17,-11.84c0.23,-6.47 -4.01,-10.6 -9.38,-10.6zm-2.18,5.27c-0.38,0.22 -0.73,0.5 -1.04,0.82c-0.68,0.7 -1.16,1.6 -1.42,2.69c-0.11,0.46 -0.58,0.75 -1.04,0.64c-0.46,-0.11 -0.75,-0.58 -0.64,-1.04c0.32,-1.35 0.94,-2.54 1.85,-3.49c0.42,-0.43 0.9,-0.81 1.41,-1.11c0.41,-0.24 0.94,-0.1 1.18,0.31c0.24,0.41 0.1,0.94 -0.31,1.18z");
+		
+		balloon.setAttribute("onmouseenter", "birthday_pop(this)");
+		
+		balloon.appendChild(balloonPath);
+		balloonBox.appendChild(balloon);
+		overlay.appendChild(balloonBox);
+	}
+}
+
+function birthday_pop(element)
+{
+	let path = element.getElementsByTagName("path")[0];
+	path.setAttribute("d", "M13 2v4h-2V2h2zm-2 16v4h2v-4h-2zm6.294-14.54l-2.435 3.17 1.587 1.22 2.435-3.17-1.587-1.22zm-9.74 12.69l-2.435 3.17 1.587 1.22 2.435-3.17-1.587-1.22zm-1-6.86L2.729 8.12l-.584 1.91L5.97 11.2l.584-1.91zm15.301 4.68L18.03 12.8l-.585 1.91 3.826 1.17.584-1.91zm-.584-5.85l-3.826 1.17.585 1.91 3.825-1.17-.584-1.91zM5.97 12.8l-3.825 1.17.584 1.91 3.825-1.17-.584-1.91zm3.171-6.17L6.706 3.46 5.119 4.67l2.435 3.18 1.587-1.22zm9.74 12.69l-2.435-3.17-1.587 1.22 2.435 3.17 1.587-1.22z");
+	
+	element.classList.remove("balloon-wobble");
+	element.classList.add("balloon-pop");
+
+	element.addEventListener("onanimationend", function(){ hide_element(element); }, false);
+	element.addEventListener("animationend", function(){ hide_element(element); }, false);
+	element.addEventListener("webkitAnimationEnd", function(){ hide_element(element); }, false);
+}
+
+
+function hide_element(element)
+{	
+	element.parentElement.remove();
 }
