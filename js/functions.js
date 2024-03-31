@@ -156,9 +156,9 @@ function carga_tuits(file, index)
 		let identifier = file;
 		if(identifier.includes("/"))
 		{
-			identifier = text.split("/").slice(-1).toString();
+			identifier = identifier.split("/").slice(-1).toString();
 		}
-		identifier = mod.split(".")[0];
+		identifier = identifier.split(".")[0];
 		plantilla.id = identifier;
 
 		let tweet = plantilla.getElementsByClassName("tweet_content")[0];
