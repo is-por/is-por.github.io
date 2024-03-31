@@ -121,6 +121,7 @@
 .post_right_block{
 	padding: 0 0.5em;
 	width: 100%;
+	min-width: 0;
 }
 
 .post_block:hover{
