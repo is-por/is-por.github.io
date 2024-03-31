@@ -111,6 +111,10 @@
 	padding: 5px 0;
 }
 
+.post_link, .post_link:hover{
+	text-decoration: inherit;
+	color: inherit;
+}
 
 .post_block{
 	display: flex;
@@ -379,7 +383,7 @@
 @media only screen and (max-width: 768px){
 	#profile_pic_block{width: 100px; height: 100px; margin-top: 0px; top: 10px}
 	#profile_reactions { padding: 0;}
-	.profile_mini_block { margin: auto; margin-top: 15px; left: 3px;}
+	.profile_mini_block { margin: 5px 2.5px 2.5px 5px; margin-top: 15px; left: 3px;}
 	.post_right_block{	width: 80%;  }
 	.footer_post button { width: auto; margin-right: 10px; }
 	.footer_post svg { width: 15px; }
