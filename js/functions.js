@@ -2,6 +2,7 @@
 var user_name = "@erispor1";
 var display_name = "Eris (shits not working)";
 var config_file = "config/config.json";
+var tweet_folder = "tweets/";
 var current_date = Date.now();
 var tweets = [];
 

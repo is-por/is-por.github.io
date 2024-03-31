@@ -82,6 +82,7 @@ window.onload = (event) =>
 	let url = window.location.href;
 	
 	url = url.split("#").slice(-1).toString();
+	url = tweet_folder+url+".json";
 	
 	carga_tuits(url)
 	
