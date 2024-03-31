@@ -64,3 +64,11 @@
 	padding: 0 2em;
     max-width: 95%;
 }
+
+.footer_post
+{
+	padding: 0;
+}
+
+@media only screen and (max-width: 768px){
+	.post_right_block{	padding: 0 1em; }
