@@ -287,7 +287,6 @@ function generate_birthday_balloons()
 	{
 		let balloonBox = document.createElement("div");
 		balloonBox.classList.add("balloon-lift");
-		
 		balloonBox.style.left = random_number(0, 100) + "%";
 		balloonBox.style.animationDelay = Math.random() * 3 +"s";
 
@@ -305,6 +304,10 @@ function generate_birthday_balloons()
 		balloon.appendChild(balloonPath);
 		balloonBox.appendChild(balloon);
 		overlay.appendChild(balloonBox);
+		
+		balloonBox.addEventListener("onanimationend", function(){ hide_element(balloon); }, false);
+		balloonBox.addEventListener("animationend", function(){ hide_element(balloon); }, false);
+		balloonBox.addEventListener("webkitAnimationEnd", function(){ hide_element(balloon); }, false);
 	}
 }
 

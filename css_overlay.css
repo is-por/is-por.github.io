@@ -54,7 +54,7 @@
 {
 	display: flex;
 	position: fixed;
-	width: 12vh;
+	width: 5em;
 	opacity: 0.7;
 	will-change: transform;
 	z-index: 1;
@@ -83,7 +83,7 @@
 .balloon-pop
 {
 	animation-name: balloon-pop-anim;
-	animation-duration: 0.5s;
+	animation-duration: 0.4s;
 	animation-timing-function: linear;
     animation-iteration-count: 1;
 }
