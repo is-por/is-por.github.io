@@ -153,12 +153,18 @@ function carga_tuits(file, index)
 		let orig = all_blocks[all_blocks.length-1];
 		let plantilla = orig.cloneNode(true);
 		
-		plantilla.id = file;
+		let identifier = file;
+		if(identifier.includes("/"))
+		{
+			identifier = text.split("/").slice(-1).toString();
+		}
+		identifier = mod.split(".")[0];
+		plantilla.id = identifier;
 
 		let tweet = plantilla.getElementsByClassName("tweet_content")[0];
 
 		//replace endl with <br/> tag
-		texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br>");
+		texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br/>");
 		tweet.innerHTML = texto;
 		
 		//images
