@@ -150,9 +150,11 @@ function carga_tuits(file, index)
 	}).then(function(json) {
 		let texto = json.texto;
 
-		let all_blocks = document.getElementsByClassName("post_link");
+		let all_blocks = document.getElementsByClassName("post_block");
 		let orig = all_blocks[all_blocks.length-1];
 		let plantilla = orig.cloneNode(true);
+		
+		let post_link = plantilla.getElementsByClassName("post_link")[0];
 		
 		let identifier = file;
 		if(identifier.includes("/"))
@@ -162,7 +164,7 @@ function carga_tuits(file, index)
 		identifier = identifier.split(".")[0];
 		plantilla.id = identifier;
 		
-		plantilla.href = "tweet.html#"+identifier;
+		post_link.href = "tweet.html#"+identifier;
 
 		let tweet = plantilla.getElementsByClassName("tweet_content")[0];
 
