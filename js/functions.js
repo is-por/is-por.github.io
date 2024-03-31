@@ -141,24 +141,19 @@ function generate_trends()
 
 function carga_tuits(file, index)
 {
-	console.log(file)
 	//var modified;
 	fetch(file).then(function(response)
 	{
 		//modified = response.headers.get('Last-Modified');
-		console.log(file)
-		console.log(response)
 		return response.json();
 	}).then(function(json) {
-		console.log(file)
-		console.log(json)
 		let texto = json.texto;
 
 		let all_blocks = document.getElementsByClassName("post_block");
 		let orig = all_blocks[all_blocks.length-1];
 		let plantilla = orig.cloneNode(true);
 		
-		plantilla.id = "aaa"
+		plantilla.id = file;
 
 		let tweet = plantilla.getElementsByClassName("tweet_content")[0];
 
