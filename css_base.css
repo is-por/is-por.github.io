@@ -83,6 +83,18 @@ body{
 	color:rgb(247, 249, 249);
 }
 
+spoiler
+{
+	color:rgb(247, 249, 249);
+	background-color: rgb(247, 249, 249);
+	cursor: pointer;
+}
+
+spoiler:hover
+{
+	background-color: rgb(247, 249, 249, 0);
+}
+
 .container{
 	
 	position: relative;

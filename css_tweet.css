@@ -3,7 +3,8 @@
 
 .topbar
 {
-    background-color: rgb(21, 32, 43);
+    backdrop-filter: blur(12px);
+    background-color: rgb(21, 32, 43, 0.75);
     top: 0;
     position: sticky;
     padding: 15px;
