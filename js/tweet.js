@@ -22,13 +22,14 @@ function carga_config()
 
 function carga_tuits_drive(file)
 {
-	fetch(config_file).then(function(response)
+	console.log(file)
+	fetch(sheetURL).then(function(response)
 	{
 		return response.json();
 	}).then(function(json) {
 		tweets = json;
 		
-		let tuit = getTweetsById(file)
+		let tuit = getTweetById(file)
 		
 		carga_tuits(tuit);
 	})
@@ -94,6 +95,7 @@ function carga_tuits(file)
 }*/
 function carga_tuits(file)
 {
+	console.log(file)
 	let texto = file.texto;
 
 	let all_blocks = document.getElementsByClassName("post_block");

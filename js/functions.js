@@ -204,6 +204,7 @@ function carga_tuits(file, index)
 
 function carga_tuits(file, index)
 {
+	console.log(file[index])
 	let texto = file[index].texto;
 
 	let all_blocks = document.getElementsByClassName("post_block");
@@ -261,10 +262,11 @@ function load_all_tweets(index)
 
 function carga_tuits_drive()
 {
-	fetch(config_file).then(function(response)
+	fetch(sheetURL).then(function(response)
 	{
 		return response.json();
 	}).then(function(json) {
+		console.log(json)
 		tweets = json;
 		load_all_tweets(0);
 	})
