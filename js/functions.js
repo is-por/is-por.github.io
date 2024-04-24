@@ -204,8 +204,8 @@ function carga_tuits(file, index)
 
 function carga_tuits(file, index)
 {
-	console.log(file[index])
-	let texto = file[index].texto;
+	console.log(file)
+	let texto = file.texto;
 
 	let all_blocks = document.getElementsByClassName("post_block");
 	let orig = all_blocks[all_blocks.length-1];
@@ -213,7 +213,7 @@ function carga_tuits(file, index)
 	
 	let post_link = plantilla.getElementsByClassName("post_link")[0];
 	
-	let identifier = file[index].id;
+	let identifier = file.id;
 	plantilla.id = identifier;	
 	post_link.href = "tweet.html#"+identifier;
 
@@ -225,7 +225,7 @@ function carga_tuits(file, index)
 	
 	//images
 	let image_block = plantilla.getElementsByClassName("tweet_images")[0];
-	let images_fix = file[index].imagenes.replace(/\s/g, '');
+	let images_fix = file.imagenes.replace(/\s/g, '');
 	let image_array = images_fix.split(",");
 	
 	for(let i = 0; i < image_array.length; i++)
@@ -239,7 +239,7 @@ function carga_tuits(file, index)
 	
 	//date
 	let tweet_date = plantilla.getElementsByClassName("date")[0];
-	tweet_date.innerHTML = file[index].fecha;
+	tweet_date.innerHTML = file.fecha;
 	format_date(plantilla)
 	
 	//insert tweet
