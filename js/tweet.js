@@ -24,15 +24,12 @@ function carga_tuits_drive()
 {
 	let url = window.location.href;
 	url = url.split("#").slice(-1).toString();
-	console.log(url)
 	fetch(sheetURL).then(function(response)
 	{
 		return response.json();
 	}).then(function(json) {
 		tweets = json;
-		console.log(tweets)
 		let tuit = getTweetById(url)
-		console.log(tuit[0])
 		
 		carga_tuits(tuit[0]);
 	})
@@ -102,7 +99,7 @@ function carga_tuits(file)
 	let texto = file.texto;
 
 	let all_blocks = document.getElementsByClassName("post_block");
-	let orig = all_blocks[all_blocks.length-1];
+	let plantilla = all_blocks[all_blocks.length-1];
 	//let plantilla = orig.cloneNode(true);
 	
 	let identifier = file.id;
