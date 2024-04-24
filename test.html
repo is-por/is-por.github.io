@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css_test.css" type="text/css">
+<title>Turoboto :3</title>
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+</head>
+<body>
+<div class="mainbox">
+<form id="form">
+<input type="file" id="Image" name="Image" accept="image/png, image/jpg, image/jpeg" />
+<input type="text" id="Name" name="Name" />
+<button id ="submit" type="submit" >click :3</button>
+</form>
+</div>
+</body>
+
+<script>
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwvBt8LDtBRnXVZyC-hK6asXthQP2EsnHmRGDleWeewkk5ru56YShF6htZZUmd14u5G/exec'
+
+
+async function load() {
+  const response = await fetch(scriptURL);
+  //   console.log(response);
+  const events = await response.json();
+  console.log({ events });
+}
+
+load();
+
+/*
+   const form = document.querySelector("#form")
+   const submitButton = document.querySelector("#submit")
+   const scriptURL = 'https://script.google.com/macros/s/AKfycbwvBt8LDtBRnXVZyC-hK6asXthQP2EsnHmRGDleWeewkk5ru56YShF6htZZUmd14u5G/exec'
+
+   form.addEventListener('submit', e => {
+     submitButton.disabled = true
+     e.preventDefault()
+     let requestBody = new FormData(form)
+     fetch(scriptURL, { method: 'POST', body: requestBody})
+       .then(response => {
+          alert('Success!', response)
+          submitButton.disabled = false
+         })
+       .catch(error => {
+       alert('Error!', error.message)
+         submitButton.disabled = false
+
+       }
+       )
+   })
+   */
+</script>
+</html>
