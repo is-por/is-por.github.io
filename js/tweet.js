@@ -103,7 +103,7 @@ function carga_tuits(file)
 
 	let all_blocks = document.getElementsByClassName("post_block");
 	let orig = all_blocks[all_blocks.length-1];
-	let plantilla = orig.cloneNode(true);
+	//let plantilla = orig.cloneNode(true);
 	
 	let identifier = file.id;
 	plantilla.id = identifier;	
@@ -136,8 +136,8 @@ function carga_tuits(file)
 	format_date(plantilla)
 	
 	//insert tweet
-	let tl = document.getElementById("timeline");
-	tl.insertBefore(plantilla, tl.children[0]);
+	//let tl = document.getElementById("timeline");
+	//tl.insertBefore(plantilla, tl.children[0]);
 	
 }
 
