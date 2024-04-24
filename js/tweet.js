@@ -1,4 +1,5 @@
 //Overwrite function
+/*
 function carga_config()
 {
 	fetch(config_file).then(function(response)
@@ -11,25 +12,26 @@ function carga_config()
 		
 		update_username(document);
 		
-		let url = window.location.href;
-	
-		url = url.split("#").slice(-1).toString();
 		
-		carga_tuits_drive(url);
+
+		carga_tuits_drive();
 	})
 	.catch(function(error){console.log(error);});
-}
+}*/
 
-function carga_tuits_drive(file)
+//Overwrite function
+function carga_tuits_drive()
 {
-	console.log(file)
+	let url = window.location.href;
+	url = url.split("#").slice(-1).toString();
+	console.log(url)
 	fetch(sheetURL).then(function(response)
 	{
 		return response.json();
 	}).then(function(json) {
 		tweets = json;
 		console.log(tweets)
-		let tuit = getTweetById(file)
+		let tuit = getTweetById(url)
 		console.log(tuit)
 		
 		carga_tuits(tuit);
