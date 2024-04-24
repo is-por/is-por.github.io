@@ -28,8 +28,9 @@ function carga_tuits_drive(file)
 		return response.json();
 	}).then(function(json) {
 		tweets = json;
-		
+		console.log(tweets)
 		let tuit = getTweetById(file)
+		console.log(tuit)
 		
 		carga_tuits(tuit);
 	})
