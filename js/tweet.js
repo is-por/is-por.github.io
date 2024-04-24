@@ -32,9 +32,9 @@ function carga_tuits_drive()
 		tweets = json;
 		console.log(tweets)
 		let tuit = getTweetById(url)
-		console.log(tuit)
+		console.log(tuit[0])
 		
-		carga_tuits(tuit);
+		carga_tuits(tuit[0]);
 	})
 	.catch(function(error){console.log(error);});
 }
