@@ -105,11 +105,9 @@ function carga_tuits(file)
 	let orig = all_blocks[all_blocks.length-1];
 	let plantilla = orig.cloneNode(true);
 	
-	let post_link = plantilla.getElementsByClassName("post_link")[0];
-	
 	let identifier = file.id;
 	plantilla.id = identifier;	
-	post_link.href = "tweet.html#"+identifier;
+	plantilla.href = "tweet.html#"+identifier;
 
 	let tweet = plantilla.getElementsByClassName("tweet_content")[0];
 
