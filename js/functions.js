@@ -2,6 +2,7 @@
 var user_name = "@erispor1";
 var display_name = "Eris (shits not working)";
 var config_file = "config/config.json";
+var sheetURL = "";
 var tweet_folder = "tweets/";
 var current_date = Date.now();
 var tweets = [];
@@ -138,8 +139,7 @@ function generate_trends()
 
 	
 //Carga txt
-
-
+/* OLD CARGA_TUITS
 function carga_tuits(file, index)
 {
 	//var modified;
@@ -199,7 +199,55 @@ function carga_tuits(file, index)
 		console.log(error);
 		load_all_tweets(index+1);
 	});
+}
+*/
 
+function carga_tuits(file, index)
+{
+	let texto = file[index].texto;
+
+	let all_blocks = document.getElementsByClassName("post_block");
+	let orig = all_blocks[all_blocks.length-1];
+	let plantilla = orig.cloneNode(true);
+	
+	let post_link = plantilla.getElementsByClassName("post_link")[0];
+	
+	let identifier = file[index].id;
+	plantilla.id = identifier;	
+	post_link.href = "tweet.html#"+identifier;
+
+	let tweet = plantilla.getElementsByClassName("tweet_content")[0];
+
+	//replace endl with <br/> tag
+	texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br/>");
+	tweet.innerHTML = texto;
+	
+	//images
+	let image_block = plantilla.getElementsByClassName("tweet_images")[0];
+	let images_fix = file[index].imagenes.replace(/\s/g, '');
+	let image_array = images_fix.split(",");
+	
+	for(let i = 0; i < image_array.length; i++)
+	{
+		let img = document.createElement("img");
+		img.src = image_array[i];
+		image_block.appendChild(img);
+	}
+	
+	generate_engagement(plantilla);
+	
+	//date
+	let tweet_date = plantilla.getElementsByClassName("date")[0];
+	tweet_date.innerHTML = file[index].fecha;
+	format_date(plantilla)
+	
+	//insert tweet
+	let tl = document.getElementById("timeline");
+	tl.insertBefore(plantilla, tl.children[0]);
+	
+	//load next tweet
+	load_all_tweets(index+1);
+	
 }
 
 function load_all_tweets(index)
@@ -209,6 +257,26 @@ function load_all_tweets(index)
 	{
 		carga_tuits(tweets[index], index)
 	}
+}
+
+function carga_tuits_drive()
+{
+	fetch(config_file).then(function(response)
+	{
+		return response.json();
+	}).then(function(json) {
+		tweets = json;
+		load_all_tweets(0);
+	})
+	.catch(function(error){console.log(error);});
+}
+
+function getTweetById(id) {
+  return tweets.filter(
+    function(tweets) {
+      return tweets.id == id
+    }
+  );
 }
 
 
@@ -221,12 +289,13 @@ function carga_config()
 		
 		display_name = json.display_name;
 		user_name = json.user_name;
+		sheetURL = json.sheet_url;
 		
 		update_username(document);
 		
-		tweets = json.tweets;
-		
-		load_all_tweets(0);
+		//tweets = json.tweets;
+		//load_all_tweets(0);
+		carga_tuits_drive();
 
 	})
 	.catch(function(error){console.log(error);});

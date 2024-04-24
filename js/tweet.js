@@ -10,10 +10,32 @@ function carga_config()
 		user_name = json.user_name;
 		
 		update_username(document);
+		
+		let url = window.location.href;
+	
+		url = url.split("#").slice(-1).toString();
+		
+		carga_tuits_drive(url);
 	})
 	.catch(function(error){console.log(error);});
 }
 
+function carga_tuits_drive(file)
+{
+	fetch(config_file).then(function(response)
+	{
+		return response.json();
+	}).then(function(json) {
+		tweets = json;
+		
+		let tuit = getTweetsById(file)
+		
+		carga_tuits(tuit);
+	})
+	.catch(function(error){console.log(error);});
+}
+
+/*
 function carga_tuits(file)
 {
 	//var modified;
@@ -69,8 +91,51 @@ function carga_tuits(file)
 		console.log(error);
 	});
 
-}
+}*/
+function carga_tuits(file)
+{
+	let texto = file.texto;
 
+	let all_blocks = document.getElementsByClassName("post_block");
+	let orig = all_blocks[all_blocks.length-1];
+	let plantilla = orig.cloneNode(true);
+	
+	let post_link = plantilla.getElementsByClassName("post_link")[0];
+	
+	let identifier = file.id;
+	plantilla.id = identifier;	
+	post_link.href = "tweet.html#"+identifier;
+
+	let tweet = plantilla.getElementsByClassName("tweet_content")[0];
+
+	//replace endl with <br/> tag
+	texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br/>");
+	tweet.innerHTML = texto;
+	
+	//images
+	let image_block = plantilla.getElementsByClassName("tweet_images")[0];
+	let images_fix = file.imagenes.replace(/\s/g, '');
+	let image_array = images_fix.split(",");
+	
+	for(let i = 0; i < image_array.length; i++)
+	{
+		let img = document.createElement("img");
+		img.src = image_array[i];
+		image_block.appendChild(img);
+	}
+	
+	generate_engagement(plantilla);
+	
+	//date
+	let tweet_date = plantilla.getElementsByClassName("date")[0];
+	tweet_date.innerHTML = file.fecha;
+	format_date(plantilla)
+	
+	//insert tweet
+	let tl = document.getElementById("timeline");
+	tl.insertBefore(plantilla, tl.children[0]);
+	
+}
 
 //Main execution cycle
 window.onload = (event) =>
@@ -78,13 +143,6 @@ window.onload = (event) =>
 	
 	//console.log("document.onload");
 	carga_config();
-	
-	let url = window.location.href;
-	
-	url = url.split("#").slice(-1).toString();
-	url = tweet_folder+url+".json";
-	
-	carga_tuits(url)
 	
 	generate_trends();
 	
