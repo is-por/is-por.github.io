@@ -288,6 +288,34 @@ footer{
 	margin-top: 0px;
 }
 
+@keyframes spinner-anim 
+{
+	0% 
+	{
+		transform: rotate(0deg);
+	}
+	100%
+	{
+		transform: rotate(360deg);
+	}
+}
+
+#loading_block{
+	text-align: center;
+}
+
+.spinner{
+	padding:10px;
+	height:26px;
+	width:26px;
+	animation-name: spinner-anim;
+	animation-duration: 0.75s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+
+
 @media only screen and (max-width: 768px){
 	.left{ display: none; }
 	.right{ display: none; }

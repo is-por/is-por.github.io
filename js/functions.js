@@ -244,6 +244,8 @@ function carga_tuits(file, index)
 	tweet_date.innerHTML = file.fecha;
 	format_date(plantilla)
 	
+	plantilla.style.display = "inherit";
+	
 	//insert tweet
 	let tl = document.getElementById("timeline");
 	tl.insertBefore(plantilla, tl.children[0]);
@@ -258,7 +260,9 @@ function load_all_tweets(index)
 	//load one tweet at a time to ensure correct order
 	if(index < tweets.length)
 	{
-		carga_tuits(tweets[index], index)
+		carga_tuits(tweets[index], index);
+	}else{
+		document.getElementById(loading_block).remove();
 	}
 }
 

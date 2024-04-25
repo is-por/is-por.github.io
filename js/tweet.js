@@ -132,9 +132,13 @@ function carga_tuits(file)
 	tweet_date.innerHTML = file.fecha;
 	format_date(plantilla)
 	
+	plantilla.style.display = "inherit";
+	
 	//insert tweet
 	//let tl = document.getElementById("timeline");
 	//tl.insertBefore(plantilla, tl.children[0]);
+	
+	document.getElementById(loading_block).remove();
 	
 }
 
