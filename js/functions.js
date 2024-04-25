@@ -229,9 +229,12 @@ function carga_tuits(file, index)
 	
 	for(let i = 0; i < image_array.length; i++)
 	{
-		let img = document.createElement("img");
-		img.src = image_array[i];
-		image_block.appendChild(img);
+		if(image_array[i].length > 0)
+		{
+			let img = document.createElement("img");
+			img.src = image_array[i];
+			image_block.appendChild(img);
+		}
 	}
 	
 	generate_engagement(plantilla);
