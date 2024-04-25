@@ -137,6 +137,26 @@ function generate_trends()
 	.catch(function(error){console.log(error);});
 }
 
+function format_text(txt)
+{
+	if(txt.length > 300)
+	{
+		let t1 = txt.slice(0, 300);
+		let t2 = txt.slice(300);
+
+		let result = t2.indexOf("<br/>");
+
+		if(result>0)
+		{
+			t2 = t2.substring(0, result)+"<br/><br/><a>Seguir leyendo...</a>";			
+		}
+		
+		txt=t1+t2
+	}
+	
+	return txt;
+}
+
 	
 //Carga txt
 /* OLD CARGA_TUITS
@@ -220,7 +240,7 @@ function carga_tuits(file, index)
 
 	//replace endl with <br/> tag
 	texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br/>");
-	tweet.innerHTML = texto;
+	tweet.innerHTML = format_text(texto);
 	
 	//images
 	let image_block = plantilla.getElementsByClassName("tweet_images")[0];
