@@ -138,7 +138,7 @@ function carga_tuits(file)
 	//let tl = document.getElementById("timeline");
 	//tl.insertBefore(plantilla, tl.children[0]);
 	
-	document.getElementById(loading_block).remove();
+	document.getElementById("loading_block").remove();
 	
 }
 
