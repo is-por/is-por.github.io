@@ -273,6 +273,9 @@ function carga_tuits_drive()
 		return response.json();
 	}).then(function(json) {
 		tweets = json;
+		
+		sessionStorage.setItem('tweets', JSON.stringify(tweets));
+		
 		load_all_tweets(0);
 	})
 	.catch(function(error){console.log(error);});

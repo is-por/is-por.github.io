@@ -24,18 +24,29 @@ function carga_tuits_drive()
 {
 	let url = window.location.href;
 	url = url.split("#").slice(-1).toString();
-	fetch(sheetURL).then(function(response)
+	
+	if(tweets.length > 0)
 	{
-		return response.json();
-	}).then(function(json) {
-		tweets = json;
 		let tuit = getTweetById(url)
-		
 		carga_tuits(tuit[0]);
-	})
-	.catch(function(error){console.log(error);});
+	}else{
+		let tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
+		if(tweets_storage.length > 0){
+			tweets = tweets_storage;
+			carga_tuits_drive();
+		}else{		
+			fetch(sheetURL).then(function(response)
+			{
+				return response.json();
+			}).then(function(json) {
+				tweets = json;
+				
+				carga_tuits_drive();
+			})
+			.catch(function(error){console.log(error);});
+		}
+	}
 }
-
 /*
 function carga_tuits(file)
 {
