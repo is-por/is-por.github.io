@@ -374,6 +374,30 @@
 	max-height: 320px;
 }
 
+.compose_block{
+	border-top: 1px solid rgb(56, 68, 77);
+	border-bottom: 1px solid rgb(56, 68, 77);
+	height: 25%;
+}
+
+.compose_block form{
+	height: 100%;
+}
+
+.compose_block textarea{
+	padding: 2% 2.5%;
+	height: -webkit-fill-available;
+	resize: none;
+    border: 0;
+    font-size: larger;
+    font-family: 'TwitterChirp';
+    background-color: inherit;
+	width: 95%;
+}
+
+.compose_block textarea:focus-visible{
+    outline: 0;
+}
 /*
 @media (max-width:700px){
 	#imagenes img{
