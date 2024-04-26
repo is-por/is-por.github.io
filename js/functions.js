@@ -224,6 +224,7 @@ function carga_tuits(file, index)
 
 function carga_tuits(file, index)
 {
+	console.log(file)
 	let identifier = file.id;
 	let texto = file.texto;
 	
@@ -299,6 +300,7 @@ function carga_tuits_drive(force_refresh)
 {
 	if(force_refresh != true)
 	{
+		console.log("upsie")
 		let tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
 		if(tweets_storage != null && tweets_storage.length > 0){
 			tweets = tweets_storage;
@@ -311,7 +313,7 @@ function carga_tuits_drive(force_refresh)
 		return response.json();
 	}).then(function(json) {
 		tweets = json;
-		
+		console.log(tweets)
 		sessionStorage.setItem('tweets', JSON.stringify(tweets));
 		
 		load_all_tweets(0);
