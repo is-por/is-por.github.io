@@ -1,53 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
 
-.topbar
-{
-    backdrop-filter: blur(12px);
-    background-color: rgb(21, 32, 43, 0.75);
-    top: 0;
-    position: sticky;
-    padding: 15px;
-    height: 30px;
-    width: 100%;
-	cursor: pointer;
-	z-index: 2;
-}
-
-.topbar button
-{
-	background-color: inherit;
-	border: none;
-	vertical-align: top;
-    height: 100%;
-    border-radius: 50px;
-    display: inline-block;
-}
-
-.topbar button:hover
-{
-	background-color: rgba(247, 249, 249, 0.1);;
-}
-
-.topbar svg
-{
-	vertical-align:bottom;
-	color: rgb(239, 243, 244);
-	min-width: 20px;
-}
-
-.topbar p
-{
-	font-weight: 600;
-    font-size: 1.5em;
-    vertical-align: sub;
-    width: 80%;
-    height: 100%;
-    display: inline-block;
-    text-align: justify;
-    margin: 0;
-    margin-left: 4%;
-}
 
 .post_block
 {
