@@ -10,7 +10,7 @@ function carga_config()
 		user_name = json.user_name;
 		sheetURL = json.sheet_url;
 		
-		console.log(sheetURL+"?page=2")
+		console.log(sheetURL)
 		
 		update_username(document);
 
@@ -21,7 +21,7 @@ function carga_config()
 
 function carga_tuits_drive()
 {	
-	fetch(sheetURL).then(function(response)
+	fetch(sheetURL+"?page=2").then(function(response)
 	{
 		return response.json();
 	}).then(function(json) {
