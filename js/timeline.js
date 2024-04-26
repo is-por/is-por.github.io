@@ -52,17 +52,17 @@ window.onload = (event) =>
   
     form.addEventListener('submit', e => {
 		console.log(sheetURL)
-	e.preventDefault();
-	  if (sheetURL == null) return;
+	//e.preventDefault();
+	  if (sheetURL == null ) return;
       submitButton.disabled = true
       let requestBody = new FormData(form)
       fetch(sheetURL, { method: 'POST', body: requestBody})
         .then(response => {
-           alert('Success!', response)
+           //alert('Success!', response)
            submitButton.disabled = false
           })
         .catch(error => {
-        alert('Error!', error.message)
+        //alert('Error!', error.message)
         submitButton.disabled = false
 		
   
