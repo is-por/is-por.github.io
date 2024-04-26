@@ -224,15 +224,20 @@ function carga_tuits(file, index)
 
 function carga_tuits(file, index)
 {
+	let identifier = file.id;
 	let texto = file.texto;
-
-	let all_blocks = document.getElementsByClassName("post_block");
-	let orig = all_blocks[all_blocks.length-1];
-	let plantilla = orig.cloneNode(true);
 	
+	let existing_block = document.getElementById(identifier);
+	let plantilla = existing_block;
+	if(existing_block == null)
+	{
+		let all_blocks = document.getElementsByClassName("post_block");
+		let orig = all_blocks[all_blocks.length-1];
+		plantilla = orig.cloneNode(true);
+	}
 	let post_link = plantilla.getElementsByClassName("post_link")[0];
 	
-	let identifier = file.id;
+	
 	plantilla.id = identifier;	
 	post_link.href = "tweet.html#"+identifier;
 
@@ -267,8 +272,11 @@ function carga_tuits(file, index)
 	plantilla.style.display = "inherit";
 	
 	//insert tweet
-	let tl = document.getElementById("timeline");
-	tl.insertBefore(plantilla, tl.children[0]);
+	if(existing_block == null)
+	{
+		let tl = document.getElementById("timeline");
+		tl.insertBefore(plantilla, tl.children[0]);
+	}
 	
 	//load next tweet
 	load_all_tweets(index+1);
@@ -288,6 +296,12 @@ function load_all_tweets(index)
 
 function carga_tuits_drive()
 {
+	let tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
+	if(tweets_storage.length > 0){
+		tweets = tweets_storage;
+		load_all_tweets(0);
+	}
+	
 	fetch(sheetURL).then(function(response)
 	{
 		return response.json();
