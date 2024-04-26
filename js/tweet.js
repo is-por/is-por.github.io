@@ -30,9 +30,8 @@ function carga_tuits_drive()
 		let tuit = getTweetById(url)
 		carga_tuits(tuit[0]);
 	}else{
-		let tweets_storage = [];
-		tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
-		if(tweets_storage.length > 0){
+		let tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
+		if(tweets_storage != null && tweets_storage.length > 0){
 			tweets = tweets_storage;
 			carga_tuits_drive();
 		}else{		
