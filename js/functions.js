@@ -249,6 +249,7 @@ function carga_tuits(file, index)
 	
 	//images
 	let image_block = plantilla.getElementsByClassName("tweet_images")[0];
+	image_block.replaceChildren();
 	let images_fix = file.imagenes.replace(/\s/g, '');
 	let image_array = images_fix.split(",");
 	
