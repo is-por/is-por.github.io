@@ -295,12 +295,15 @@ function load_all_tweets(index)
 	}
 }
 
-function carga_tuits_drive()
+function carga_tuits_drive(force_refresh)
 {
-	let tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
-	if(tweets_storage != null && tweets_storage.length > 0){
-		tweets = tweets_storage;
-		load_all_tweets(0);
+	if(force_refresh != true)
+	{
+		let tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
+		if(tweets_storage != null && tweets_storage.length > 0){
+			tweets = tweets_storage;
+			load_all_tweets(0);
+		}
 	}
 	
 	fetch(sheetURL).then(function(response)

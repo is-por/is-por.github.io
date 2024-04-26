@@ -10,9 +10,11 @@ function carga_config()
 		user_name = json.user_name;
 		sheetURL = json.sheet_url+"?page=2";
 		
+		console.log(sheetURL)
+		
 		update_username(document);
 
-		carga_tuits_drive();
+		carga_tuits_drive(true);
 	})
 	.catch(function(error){console.log(error);});
 }
