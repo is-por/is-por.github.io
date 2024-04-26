@@ -224,7 +224,6 @@ function carga_tuits(file, index)
 
 function carga_tuits(file, index)
 {
-	console.log(file)
 	let identifier = file.id;
 	let texto = file.texto;
 	
@@ -295,16 +294,12 @@ function load_all_tweets(index)
 	}
 }
 
-function carga_tuits_drive(force_refresh)
+function carga_tuits_drive()
 {
-	if(force_refresh != true)
-	{
-		console.log("upsie")
-		let tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
-		if(tweets_storage != null && tweets_storage.length > 0){
-			tweets = tweets_storage;
-			load_all_tweets(0);
-		}
+	let tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
+	if(tweets_storage != null && tweets_storage.length > 0){
+		tweets = tweets_storage;
+		load_all_tweets(0);
 	}
 	
 	fetch(sheetURL).then(function(response)
@@ -312,7 +307,6 @@ function carga_tuits_drive(force_refresh)
 		return response.json();
 	}).then(function(json) {
 		tweets = json;
-		console.log(tweets)
 		sessionStorage.setItem('tweets', JSON.stringify(tweets));
 		
 		load_all_tweets(0);

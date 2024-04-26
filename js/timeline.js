@@ -1,4 +1,4 @@
-//Overwrite
+//Override
 function carga_config()
 {
 	fetch(config_file).then(function(response)
@@ -10,11 +10,22 @@ function carga_config()
 		user_name = json.user_name;
 		sheetURL = json.sheet_url+"?page=2";
 		
-		console.log(sheetURL)
-		
 		update_username(document);
 
 		carga_tuits_drive(true);
+	})
+	.catch(function(error){console.log(error);});
+}
+
+function carga_tuits_drive()
+{	
+	fetch(sheetURL).then(function(response)
+	{
+		return response.json();
+	}).then(function(json) {
+		tweets = json;
+		
+		load_all_tweets(0);
 	})
 	.catch(function(error){console.log(error);});
 }
