@@ -374,10 +374,10 @@ function getTweetById(list, id) {
 
 function format_quote(quote)
 {
-	quote.getElementsByClassName("footer_post")[0].remove();
-	quote.getElementsByClassName("post_link")[0].removeAttribute("href");
-	quote.getElementsByClassName("display_name")[0].innerHTML = "anonimo";
-	quote.getElementsByClassName("user_name")[0].innerHTML = "@anonimo_numeritos";
+	if(elm = quote.getElementsByClassName("footer_post")[0]) elm.remove();
+	if(elm = quote.getElementsByClassName("post_link")[0]) elm.removeAttribute("href");
+	if(elm = quote.getElementsByClassName("display_name")[0]) elm.innerHTML = "anonimo";
+	if(elm = quote.getElementsByClassName("user_name")[0]) elm.innerHTML = "@anonimo_numeritos";
 	let svgs = quote.getElementsByTagName("svg")
 	while(svgs.length > 0)
 	{

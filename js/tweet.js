@@ -127,25 +127,12 @@ function carga_tuits(file, append_to)
 	texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br/>");
 	tweet.innerHTML = texto;
 	
-	//images
-	let image_block = plantilla.getElementsByClassName("tweet_images")[0];
-	let images_fix = file.imagenes.replace(/\s/g, '');
-	let image_array = images_fix.split(",");
-	
-	for(let i = 0; i < image_array.length; i++)
-	{
-		let img = document.createElement("img");
-		img.src = image_array[i];
-		image_block.appendChild(img);
-	}
-	
-	//quote
 	//quotes
 	if(file.respuesta != null && (file.respuesta.length > 0 || typeof(file.respuesta) == "number"))
 	{
 		//console.log("file has response "+file.respuesta)
 		let right_block = plantilla.getElementsByClassName("post_right_block")[0];
-		let quote = orig.cloneNode(true);
+		let quote = plantilla.cloneNode(true);
 		quote.id = file.respuesta;
 		
 		let found = getTweetById(tweets_alt, file.respuesta)
@@ -161,6 +148,18 @@ function carga_tuits(file, append_to)
 			wait_for_quote(file.respuesta);
 		}
 		right_block.appendChild(quote);
+	}
+	
+	//images
+	let image_block = plantilla.getElementsByClassName("tweet_images")[0];
+	let images_fix = file.imagenes.replace(/\s/g, '');
+	let image_array = images_fix.split(",");
+	
+	for(let i = 0; i < image_array.length; i++)
+	{
+		let img = document.createElement("img");
+		img.src = image_array[i];
+		image_block.appendChild(img);
 	}
 	
 	generate_engagement(plantilla);
