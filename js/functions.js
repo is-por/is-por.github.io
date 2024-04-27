@@ -271,7 +271,6 @@ function carga_tuits(file, index, append_to, stop_load)
 	}
 	
 	//quotes
-	console.log("file has response "+file.respuesta+" with length "+file.respuesta.length)
 	if(file.respuesta != null && (file.respuesta.length > 0 || typeof(file.respuesta) == "number"))
 	{
 		//console.log("file has response "+file.respuesta)
