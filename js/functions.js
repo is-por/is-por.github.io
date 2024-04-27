@@ -403,10 +403,10 @@ function wait_for_quote(id)
 				elm.getElementsByClassName("display_name")[0].innerHTML = "anonimo";
 				elm.getElementsByClassName("user_name")[0].innerHTML = "@anonimo_numeritos";
 				let svgs = elm.getElementsByTagName("svg")
-				do{
-				  let svg = svgs.pop();
-				  svg.remove();
-				}while(svgs.length > 0)
+				while(svgs.length > 0)
+				{
+					svgs[0].remove();
+				}
 				
 				
 			}while(queue_ids.length > 0);
