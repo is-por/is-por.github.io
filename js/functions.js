@@ -271,7 +271,7 @@ function carga_tuits(file, index, append_to, stop_load)
 	}
 	
 	//quotes
-	if(file.respuesta != null)
+	if(file.respuesta != null && file.respuesta.length > 0)
 	{
 		console.log("file has response "+file.respuesta)
 		let right_block = plantilla.getElementsByClassName("post_right_block")[0];
