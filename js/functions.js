@@ -275,7 +275,7 @@ function carga_tuits(file, index, append_to, stop_load)
 		let quote = orig.cloneNode(true);
 		quote.id = file.respuesta;
 		
-		let found = tweet_alt.getTweetById(file.respuesta)
+		let found = tweets_alt.getTweetById(file.respuesta)
 		if(found.length > 0)
 		{
 			carga_tuits(found[0], index, append_to, true);
