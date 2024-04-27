@@ -283,7 +283,7 @@ function carga_tuits(file, append_to)
 		{
 			console.log("found response in array tweets_alt")
 			console.log(found)
-			carga_tuits(found[0], append_to);
+			format_quote(carga_tuits(found[0], append_to));
 		}else
 		{
 			console.log("response wasn't found in tweets_alt, queuing...")
@@ -347,8 +347,8 @@ function carga_tuits_drive()
 	tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
 	if(tweets_storage != null && tweets_storage.length > 0){
 		tweets = tweets_storage;
-				console.log("tweets:")
-		console.log(tweets_alt)
+		console.log("tweets:")
+		console.log(tweets)
 		load_all_tweets(0);
 	}
 	
@@ -372,6 +372,19 @@ function getTweetById(list, id) {
   );
 }
 
+function format_quote(quote)
+{
+	quote.getElementsByClassName("footer_post")[0].remove();
+	quote.getElementsByClassName("post_link")[0].removeAttribute("href");
+	quote.getElementsByClassName("display_name")[0].innerHTML = "anonimo";
+	quote.getElementsByClassName("user_name")[0].innerHTML = "@anonimo_numeritos";
+	let svgs = quote.getElementsByTagName("svg")
+	while(svgs.length > 0)
+	{
+		svgs[0].remove();
+	}
+}
+
 function wait_for_quote(id)
 {
 	if(!queue_ids.includes(id)) queue_ids.push(id);
@@ -385,7 +398,7 @@ function wait_for_quote(id)
 		}).then(function(json) {
 			waiting_response = false;
 			tweets_alt = json;
-			sessionStorage.setItem('tweets_alt', JSON.stringify(tweets));
+			sessionStorage.setItem('tweets_alt', JSON.stringify(tweets_alt));
 			
 			console.log("quote received response:")
 			console.log(tweets_alt)
@@ -397,17 +410,7 @@ function wait_for_quote(id)
 				let quote_id = queue_ids.pop();
 				console.log("adding queued response "+quote_id)
 				
-				let elm = carga_tuits(getTweetById(tweets_alt, quote_id)[0]);
-				elm.getElementsByClassName("footer_post")[0].remove();
-				elm.getElementsByClassName("post_link")[0].removeAttribute("href");
-				elm.getElementsByClassName("display_name")[0].innerHTML = "anonimo";
-				elm.getElementsByClassName("user_name")[0].innerHTML = "@anonimo_numeritos";
-				let svgs = elm.getElementsByTagName("svg")
-				while(svgs.length > 0)
-				{
-					svgs[0].remove();
-				}
-				
+				format_quote(carga_tuits(getTweetById(tweets_alt, quote_id)[0]));				
 				
 			}while(queue_ids.length > 0);
 		})

@@ -29,6 +29,7 @@ function carga_tuits_drive()
 	{
 		let tuit = getTweetById(tweets, url)
 		carga_tuits(tuit[0]);
+		document.getElementById("loading_block").remove();
 	}else{
 		let tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
 		if(tweets_storage != null && tweets_storage.length > 0){
@@ -104,14 +105,16 @@ function carga_tuits(file)
 	});
 
 }*/
-function carga_tuits(file)
+function carga_tuits(file, append_to)
 {
 	console.log(file)
 	let texto = file.texto;
 
 	let all_blocks = document.getElementsByClassName("post_block");
 	let plantilla = all_blocks[all_blocks.length-1];
-	//let plantilla = orig.cloneNode(true);
+	if(append_to != null){
+		plantilla = plantilla.cloneNode(true);
+	}
 	
 	let identifier = file.id;
 	plantilla.id = identifier;	
@@ -136,12 +139,35 @@ function carga_tuits(file)
 		image_block.appendChild(img);
 	}
 	
+	//quote
+	//quotes
+	if(file.respuesta != null && (file.respuesta.length > 0 || typeof(file.respuesta) == "number"))
+	{
+		//console.log("file has response "+file.respuesta)
+		let right_block = plantilla.getElementsByClassName("post_right_block")[0];
+		let quote = orig.cloneNode(true);
+		quote.id = file.respuesta;
+		
+		let found = getTweetById(tweets_alt, file.respuesta)
+		if(found.length > 0)
+		{
+			console.log("found response in array tweets_alt")
+			console.log(found)
+			format_quote(carga_tuits(found[0], append_to));
+		}else
+		{
+			console.log("response wasn't found in tweets_alt, queuing...")
+			
+			wait_for_quote(file.respuesta);
+		}
+		right_block.appendChild(quote);
+	}
+	
 	generate_engagement(plantilla);
 	
 	//date
 	let tweet_date = plantilla.getElementsByClassName("date")[0];
-	tweet_date.innerHTML = file.fecha;
-	format_date(plantilla)
+	tweet_date.innerHTML = format_date(file.fecha);
 	
 	plantilla.style.display = "inherit";
 	
@@ -149,7 +175,12 @@ function carga_tuits(file)
 	//let tl = document.getElementById("timeline");
 	//tl.insertBefore(plantilla, tl.children[0]);
 	
-	document.getElementById("loading_block").remove();
+	if(append_to != null){
+		append_to.appendChild(plantilla);
+	}
+
+	
+	return plantilla;
 	
 }
 
