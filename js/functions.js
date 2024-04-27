@@ -6,6 +6,11 @@ var sheetURL = "";
 var tweet_folder = "tweets/";
 var current_date = Date.now();
 var tweets = [];
+var tweets_alt = [];
+
+//queue for quote tweets
+var queue_ids = [];
+var waiting_response = false;
 
 
 function button_switcher(element)
@@ -222,17 +227,18 @@ function carga_tuits(file, index)
 }
 */
 
-function carga_tuits(file, index)
+function carga_tuits(file, index, append_to, stop_load)
 {
 	let identifier = file.id;
 	let texto = file.texto;
 	
 	let existing_block = document.getElementById(identifier);
 	let plantilla = existing_block;
+	
+	let all_blocks = document.getElementsByClassName("post_block");
+	let orig = all_blocks[all_blocks.length-1];
 	if(existing_block == null)
 	{
-		let all_blocks = document.getElementsByClassName("post_block");
-		let orig = all_blocks[all_blocks.length-1];
 		plantilla = orig.cloneNode(true);
 	}
 	plantilla.id = identifier;	
@@ -262,6 +268,26 @@ function carga_tuits(file, index)
 		}
 	}
 	
+	//quotes
+	if(file.respuesta != null)
+	{
+		let right_block = plantilla.getElementsByClassName("post_right_block")[0];
+		let quote = orig.cloneNode(true);
+		quote.id = file.respuesta;
+		
+		let found = tweet_alt.getTweetById(file.respuesta)
+		if(found.length > 0)
+		{
+			carga_tuits(found[0], index, append_to, true);
+		}else
+		{
+			queue_ids.push(file.respuesta);
+			wait_for_quote();
+		}
+		
+		right_block.appendChild(quote);
+	}
+	
 	generate_engagement(plantilla);
 	
 	//date
@@ -274,9 +300,18 @@ function carga_tuits(file, index)
 	//insert tweet
 	if(existing_block == null)
 	{
-		let tl = document.getElementById("timeline");
-		tl.insertBefore(plantilla, tl.children[0]);
+		if(append_to == null)
+		{
+			let tl = document.getElementById("timeline");
+			tl.insertBefore(plantilla, tl.children[0]);
+		}
+		else
+		{
+			append_to.appendChild(plantilla)
+		}
 	}
+	
+	if(stop_load === true) return;
 	
 	//load next tweet
 	load_all_tweets(index+1);
@@ -297,6 +332,11 @@ function load_all_tweets(index)
 
 function carga_tuits_drive()
 {
+	tweets_storage = JSON.parse(sessionStorage.getItem('tweets_alt'))
+	if(tweets_storage != null && tweets_storage.length > 0){
+		tweets_alt = tweets_storage;
+	}
+	
 	let tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
 	if(tweets_storage != null && tweets_storage.length > 0){
 		tweets = tweets_storage;
@@ -323,6 +363,29 @@ function getTweetById(id) {
   );
 }
 
+function wait_for_quote()
+{
+	if(!waiting_response)
+	{
+		waiting_response = true;
+		fetch(sheetURL+"?page=2").then(function(response)
+		{
+			return response.json();
+		}).then(function(json) {
+			waiting_response = false;
+			tweets_alt = json;
+			sessionStorage.setItem('tweets_alt', JSON.stringify(tweets));
+			
+			if(tweets_alt == null) return;
+			
+			do{
+				let quote_id = queue_ids.pop();
+				carga_tuits(tweets_alt.getTweetById(quote_id)[0], 0, document, true);
+			}while(queue_ids.length > 0);
+		})
+		.catch(function(error){console.log(error);});
+	}
+}
 
 function carga_config()
 {
