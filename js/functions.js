@@ -401,9 +401,9 @@ function wait_for_quote(id)
 				elm.getElementsByClassName("footer_post")[0].remove();
 				elm.getElementsByClassName("post_link")[0].removeAttribute("href");
 				let svgs = elm.getElementsByTagName("svg")
-				for (var indice in svgs) {
-				  svgs[indice].remove()
-				}
+				do{
+				  svgs.pop().remove()
+				}while(svgs.length > 0)
 				elm.getElementsByClassName("display_name")[0].innerHTML = "anonimo"
 				elm.getElementsByClassName("user_name")[0].innerHTML = "@anonimo_numeritos"
 				
