@@ -287,8 +287,8 @@ function carga_tuits(file, append_to)
 		}else
 		{
 			console.log("response wasn't found in tweets_alt, queuing...")
-			queue_ids.push(file.respuesta);
-			wait_for_quote();
+			
+			wait_for_quote(file.respuesta);
 		}
 		
 		right_block.appendChild(quote);
@@ -373,8 +373,10 @@ function getTweetById(list, id) {
   );
 }
 
-function wait_for_quote()
+function wait_for_quote(id)
 {
+	if(!queue_ids.includes(id)) queue_ids.push(id);
+	
 	if(!waiting_response)
 	{
 		waiting_response = true;
@@ -452,6 +454,8 @@ function format_date(root_elm)
 		
 		let diff = current_date - date;		
 		let daydiff = diff / (1000 * 60 * 60 * 24);   
+		
+		console.log("date_text = "+date_text+", date="+date+", daydiff="+daydiff)
 
 		let format_date = ""
 		if(daydiff < 1)
