@@ -9,17 +9,19 @@ var tweets = [];
 //Main execution cycle
 $( document ).ready(function() 
 {
-	
 	//console.log("document.onload");
 	carga_config();
-	
-	generate_trends();
-	
-	//engagement del perfil/tendencias
-	generate_engagement(document);
 	
 	format_date(document);
 	
 	birthday_count();
+	
+	$("#container_left").load("./left-menu.html"); 
+	$("#container_right").load("./right-menu.html", function(){
+		generate_trends();
+	
+		//engagement del perfil/tendencias
+		generate_engagement(document);
+	});
 });
 

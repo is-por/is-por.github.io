@@ -290,7 +290,8 @@ function load_all_tweets(index)
 	{
 		carga_tuits(tweets[index], index);
 	}else{
-		document.getElementById("loading_block").remove();
+		let spinner = document.getElementById("loading_block");
+		if( spinner != null) spinner.remove();
 	}
 }
 
