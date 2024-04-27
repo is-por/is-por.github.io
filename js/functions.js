@@ -271,9 +271,10 @@ function carga_tuits(file, index, append_to, stop_load)
 	}
 	
 	//quotes
+	console.log("file has response "+file.respuesta+" with length "+file.respuesta.length)
 	if(file.respuesta != null && file.respuesta.length > 0)
 	{
-		console.log("file has response "+file.respuesta)
+		//console.log("file has response "+file.respuesta)
 		let right_block = plantilla.getElementsByClassName("post_right_block")[0];
 		let quote = orig.cloneNode(true);
 		quote.id = file.respuesta;
