@@ -332,12 +332,12 @@ function load_all_tweets(index)
 
 function carga_tuits_drive()
 {
-	tweets_storage = JSON.parse(sessionStorage.getItem('tweets_alt'))
+	let tweets_storage = JSON.parse(sessionStorage.getItem('tweets_alt'))
 	if(tweets_storage != null && tweets_storage.length > 0){
 		tweets_alt = tweets_storage;
 	}
 	
-	let tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
+	tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
 	if(tweets_storage != null && tweets_storage.length > 0){
 		tweets = tweets_storage;
 		load_all_tweets(0);
