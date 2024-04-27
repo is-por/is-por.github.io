@@ -404,7 +404,8 @@ function wait_for_quote(id)
 				elm.getElementsByClassName("user_name")[0].innerHTML = "@anonimo_numeritos";
 				let svgs = elm.getElementsByTagName("svg")
 				do{
-				  svgs.pop().remove()
+				  let svg = svgs.pop();
+				  svg.remove();
 				}while(svgs.length > 0)
 				
 				
