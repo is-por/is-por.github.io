@@ -259,7 +259,7 @@ function carga_tuits(file, is_quote)
 	{
 		//console.log("file has response "+file.respuesta)
 		let right_block = plantilla.getElementsByClassName("post_right_block")[0];
-		let quote = plantilla.cloneNode(true);
+		let quote = orig.cloneNode(true);
 		quote.id = file.respuesta;
 		right_block.appendChild(quote);
 		
