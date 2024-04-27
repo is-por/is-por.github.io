@@ -227,7 +227,7 @@ function carga_tuits(file, index)
 }
 */
 
-function carga_tuits(file, append_to)
+function carga_tuits(file, is_quote)
 {
 	console.log("carga_tuits")
 	console.log(file)
@@ -277,21 +277,20 @@ function carga_tuits(file, append_to)
 		let right_block = plantilla.getElementsByClassName("post_right_block")[0];
 		let quote = orig.cloneNode(true);
 		quote.id = file.respuesta;
+		right_block.appendChild(quote);
 		
 		let found = getTweetById(tweets_alt, file.respuesta)
 		if(found.length > 0)
 		{
 			console.log("found response in array tweets_alt")
 			console.log(found)
-			format_quote(carga_tuits(found[0], plantilla));
+			format_quote(carga_tuits(found[0], true));
 		}else
 		{
 			console.log("response wasn't found in tweets_alt, queuing...")
 			
 			wait_for_quote(file.respuesta);
 		}
-		
-		right_block.appendChild(quote);
 	}
 	
 	generate_engagement(plantilla);
@@ -305,14 +304,10 @@ function carga_tuits(file, append_to)
 	//insert tweet
 	if(existing_block == null)
 	{
-		if(append_to == null)
+		if(!is_quote)
 		{
 			let tl = document.getElementById("timeline");
 			tl.insertBefore(plantilla, tl.children[0]);
-		}
-		else
-		{
-			append_to.appendChild(plantilla)
 		}
 	}
 	

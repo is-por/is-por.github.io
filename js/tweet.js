@@ -105,16 +105,13 @@ function carga_tuits(file)
 	});
 
 }*/
-function carga_tuits(file, append_to)
+function carga_tuits(file)
 {
 	console.log(file)
 	let texto = file.texto;
 
 	let all_blocks = document.getElementsByClassName("post_block");
 	let plantilla = all_blocks[all_blocks.length-1];
-	if(append_to != null){
-		plantilla = plantilla.cloneNode(true);
-	}
 	
 	let identifier = file.id;
 	plantilla.id = identifier;	
@@ -132,22 +129,22 @@ function carga_tuits(file, append_to)
 	{
 		//console.log("file has response "+file.respuesta)
 		let right_block = plantilla.getElementsByClassName("post_right_block")[0];
-		let quote = plantilla.cloneNode(true);
+		let quote = orig.cloneNode(true);
 		quote.id = file.respuesta;
+		right_block.appendChild(quote);
 		
 		let found = getTweetById(tweets_alt, file.respuesta)
 		if(found.length > 0)
 		{
 			console.log("found response in array tweets_alt")
 			console.log(found)
-			format_quote(carga_tuits(found[0], append_to));
+			format_quote(carga_tuits(found[0], true));
 		}else
 		{
 			console.log("response wasn't found in tweets_alt, queuing...")
 			
 			wait_for_quote(file.respuesta);
 		}
-		right_block.appendChild(quote);
 	}
 	
 	//images
@@ -173,11 +170,6 @@ function carga_tuits(file, append_to)
 	//insert tweet
 	//let tl = document.getElementById("timeline");
 	//tl.insertBefore(plantilla, tl.children[0]);
-	
-	if(append_to != null){
-		append_to.appendChild(plantilla);
-	}
-
 	
 	return plantilla;
 	
