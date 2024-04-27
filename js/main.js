@@ -7,8 +7,7 @@ var current_date = Date.now();
 var tweets = [];
 
 //Main execution cycle
-window.onload = (event) =>
-{
+$( document ).ready(function() {
 	
 	//console.log("document.onload");
 	carga_config();
@@ -21,6 +20,5 @@ window.onload = (event) =>
 	format_date(document);
 	
 	birthday_count();
-	
 }
 
