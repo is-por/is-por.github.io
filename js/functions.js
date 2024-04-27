@@ -254,28 +254,12 @@ function carga_tuits(file, is_quote)
 	texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br/>");
 	tweet.innerHTML = format_text(texto);
 	
-	//images
-	let image_block = plantilla.getElementsByClassName("tweet_images")[0];
-	image_block.replaceChildren();
-	let images_fix = file.imagenes.replace(/\s/g, '');
-	let image_array = images_fix.split(",");
-	
-	for(let i = 0; i < image_array.length; i++)
-	{
-		if(image_array[i].length > 0)
-		{
-			let img = document.createElement("img");
-			img.src = image_array[i];
-			image_block.appendChild(img);
-		}
-	}
-	
 	//quotes
 	if(file.respuesta != null && (file.respuesta.length > 0 || typeof(file.respuesta) == "number"))
 	{
 		//console.log("file has response "+file.respuesta)
 		let right_block = plantilla.getElementsByClassName("post_right_block")[0];
-		let quote = orig.cloneNode(true);
+		let quote = plantilla.cloneNode(true);
 		quote.id = file.respuesta;
 		right_block.appendChild(quote);
 		
@@ -290,6 +274,22 @@ function carga_tuits(file, is_quote)
 			console.log("response wasn't found in tweets_alt, queuing...")
 			
 			wait_for_quote(file.respuesta);
+		}
+	}
+	
+	//images
+	let image_block = plantilla.getElementsByClassName("tweet_images")[0];
+	image_block.replaceChildren();
+	let images_fix = file.imagenes.replace(/\s/g, '');
+	let image_array = images_fix.split(",");
+	
+	for(let i = 0; i < image_array.length; i++)
+	{
+		if(image_array[i].length > 0)
+		{
+			let img = document.createElement("img");
+			img.src = image_array[i];
+			image_block.appendChild(img);
 		}
 	}
 	
