@@ -275,7 +275,7 @@ function carga_tuits(file, index, append_to, stop_load)
 		let quote = orig.cloneNode(true);
 		quote.id = file.respuesta;
 		
-		let found = tweets_alt.getTweetById(file.respuesta)
+		let found = getTweetById(tweets_alt, file.respuesta)
 		if(found.length > 0)
 		{
 			carga_tuits(found[0], index, append_to, true);
@@ -355,10 +355,10 @@ function carga_tuits_drive()
 	.catch(function(error){console.log(error);});
 }
 
-function getTweetById(id) {
-  return tweets.filter(
-    function(tweets) {
-      return tweets.id == id
+function getTweetById(list, id) {
+  return list.filter(
+    function(list) {
+      return list.id == id
     }
   );
 }
@@ -380,7 +380,7 @@ function wait_for_quote()
 			
 			do{
 				let quote_id = queue_ids.pop();
-				carga_tuits(tweets_alt.getTweetById(quote_id)[0], 0, document, true);
+				carga_tuits(getTweetById(tweets_alt, quote_id)[0], 0, document, true);
 			}while(queue_ids.length > 0);
 		})
 		.catch(function(error){console.log(error);});
