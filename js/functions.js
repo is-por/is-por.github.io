@@ -229,6 +229,8 @@ function carga_tuits(file, index)
 
 function carga_tuits(file, index, append_to, stop_load)
 {
+	console.log("carga_tuits")
+	console.log(file)
 	let identifier = file.id;
 	let texto = file.texto;
 	
@@ -271,6 +273,7 @@ function carga_tuits(file, index, append_to, stop_load)
 	//quotes
 	if(file.respuesta != null)
 	{
+		console.log("file has response "+file.respuesta)
 		let right_block = plantilla.getElementsByClassName("post_right_block")[0];
 		let quote = orig.cloneNode(true);
 		quote.id = file.respuesta;
@@ -278,6 +281,8 @@ function carga_tuits(file, index, append_to, stop_load)
 		let found = getTweetById(tweets_alt, file.respuesta)
 		if(found.length > 0)
 		{
+			console.log("found response in array tweets_alt")
+			console.log(found)
 			carga_tuits(found[0], index, append_to, true);
 		}else
 		{
@@ -335,11 +340,15 @@ function carga_tuits_drive()
 	let tweets_storage = JSON.parse(sessionStorage.getItem('tweets_alt'))
 	if(tweets_storage != null && tweets_storage.length > 0){
 		tweets_alt = tweets_storage;
+		console.log("tweets_alt:")
+		console.log(tweets_alt)
 	}
 	
 	tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
 	if(tweets_storage != null && tweets_storage.length > 0){
 		tweets = tweets_storage;
+				console.log("tweets:")
+		console.log(tweets_alt)
 		load_all_tweets(0);
 	}
 	
@@ -376,10 +385,14 @@ function wait_for_quote()
 			tweets_alt = json;
 			sessionStorage.setItem('tweets_alt', JSON.stringify(tweets));
 			
+			console.log("quote received response:")
+			console.log(tweets_alt)
+			
 			if(tweets_alt == null) return;
 			
 			do{
 				let quote_id = queue_ids.pop();
+				console.log("adding queued response "+quote_id)
 				carga_tuits(getTweetById(tweets_alt, quote_id)[0], 0, document, true);
 			}while(queue_ids.length > 0);
 		})
