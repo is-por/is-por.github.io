@@ -298,8 +298,7 @@ function carga_tuits(file, append_to)
 	
 	//date
 	let tweet_date = plantilla.getElementsByClassName("date")[0];
-	tweet_date.innerHTML = file.fecha;
-	format_date(plantilla)
+	tweet_date.innerHTML = format_date(file.fecha);
 	
 	plantilla.style.display = "inherit";
 	
@@ -444,12 +443,12 @@ function update_username(root_elm)
 	}
 }
 
-function format_date(root_elm)
+function format_date(date_text)
 {
-	let date_fields = root_elm.getElementsByClassName("date");
-	for(let i = 0 ; i < date_fields.length; i++)
-	{	
-		let date_text = date_fields[i].innerHTML;
+	//let date_fields = root_elm.getElementsByClassName("date");
+	//for(let i = 0 ; i < date_fields.length; i++)
+	//{	
+		//let date_text = date_fields[i].innerHTML;
 		let date = Date.parse(date_text)
 		
 		let diff = current_date - date;		
@@ -475,8 +474,9 @@ function format_date(root_elm)
 				format_date += date_obj.getFullYear();
 			}
 		}
-		date_fields[i].innerHTML = format_date;
-	}
+		//date_fields[i].innerHTML = format_date;
+	//}
+	return format_date;
 }
 
 function generate_birthday_balloons()
