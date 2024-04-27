@@ -399,7 +399,14 @@ function wait_for_quote(id)
 				
 				let elm = carga_tuits(getTweetById(tweets_alt, quote_id)[0]);
 				elm.getElementsByClassName("footer_post")[0].remove();
-				elm.getElementsByClassName("post_link")[0].href = "";
+				elm.getElementsByClassName("post_link")[0].removeAttribute("href");
+				let svgs = elm.getElementsByTagName("svg")
+				for (var indice in svgs) {
+				  svgs[indice].remove()
+				}
+				elm.getElementsByClassName("display_name")[0].innerHTML = "anonimo"
+				elm.getElementsByClassName("user_name")[0].innerHTML = "@anonimo_numeritos"
+				
 			}while(queue_ids.length > 0);
 		})
 		.catch(function(error){console.log(error);});
