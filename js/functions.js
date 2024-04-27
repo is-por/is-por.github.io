@@ -227,7 +227,7 @@ function carga_tuits(file, index)
 }
 */
 
-function carga_tuits(file, index, append_to, stop_load)
+function carga_tuits(file, append_to)
 {
 	console.log("carga_tuits")
 	console.log(file)
@@ -283,9 +283,10 @@ function carga_tuits(file, index, append_to, stop_load)
 		{
 			console.log("found response in array tweets_alt")
 			console.log(found)
-			carga_tuits(found[0], index, append_to, true);
+			carga_tuits(found[0], append_to);
 		}else
 		{
+			console.log("response wasn't found in tweets_alt, queuing...")
 			queue_ids.push(file.respuesta);
 			wait_for_quote();
 		}
@@ -316,23 +317,23 @@ function carga_tuits(file, index, append_to, stop_load)
 		}
 	}
 	
-	if(stop_load === true) return;
+	return plantilla;
 	
 	//load next tweet
-	load_all_tweets(index+1);
 	
 }
 
-function load_all_tweets(index)
+function load_all_tweets()
 {
-	//load one tweet at a time to ensure correct order
-	if(index < tweets.length)
+	for(let i = 0 ; i < tweets.length; i++)
 	{
-		carga_tuits(tweets[index], index);
-	}else{
-		let spinner = document.getElementById("loading_block");
-		if( spinner != null) spinner.remove();
+		if(i < tweets.length)
+		{
+			carga_tuits(tweets[i]);
+		}
 	}
+	let spinner = document.getElementById("loading_block");
+	if( spinner != null) spinner.remove();
 }
 
 function carga_tuits_drive()
@@ -390,10 +391,13 @@ function wait_for_quote()
 			
 			if(tweets_alt == null) return;
 			
+			console.log(queue_ids)
 			do{
 				let quote_id = queue_ids.pop();
 				console.log("adding queued response "+quote_id)
-				carga_tuits(getTweetById(tweets_alt, quote_id)[0], 0, document, true);
+				let elm = carga_tuits(getTweetById(tweets_alt, quote_id)[0]);
+				
+				elm.getElementsByClassName("footer_post")[0].remove();
 			}while(queue_ids.length > 0);
 		})
 		.catch(function(error){console.log(error);});

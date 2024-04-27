@@ -27,7 +27,7 @@ function carga_tuits_drive()
 	}).then(function(json) {
 		tweets = json;
 		
-		load_all_tweets(0);
+		load_all_tweets();
 	})
 	.catch(function(error){console.log(error);});
 }
