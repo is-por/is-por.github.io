@@ -7,7 +7,7 @@ function carga_config()
 	}).then(function(json) {
 		
 		display_name = "anonimo";
-		user_name = "anonimo_numeritos";
+		user_name = "@anonimo_numeritos";
 		sheetURL = json.sheet_url;
 		
 		console.log(sheetURL)
