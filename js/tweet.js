@@ -160,11 +160,15 @@ window.onload = (event) =>
 	//console.log("document.onload");
 	carga_config();
 	
-	generate_trends();
-	
-	//engagement del perfil/tendencias
-	generate_engagement(document);
-	
 	format_date(document);	
+	
+	$("#container_left").load("./left-menu.html"); 
+	$("#container_right").load("./right-menu.html", function(){
+		generate_trends();
+	
+		//engagement del perfil/tendencias
+		generate_engagement(document);
+	});
+	
 }
 
