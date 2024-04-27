@@ -283,7 +283,7 @@ function carga_tuits(file, append_to)
 		{
 			console.log("found response in array tweets_alt")
 			console.log(found)
-			format_quote(carga_tuits(found[0], append_to));
+			format_quote(carga_tuits(found[0], plantilla));
 		}else
 		{
 			console.log("response wasn't found in tweets_alt, queuing...")
