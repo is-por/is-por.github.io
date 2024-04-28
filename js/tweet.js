@@ -131,7 +131,7 @@ function carga_tuits(file)
 		let right_block = plantilla.getElementsByClassName("post_right_block")[0];
 		let quote = plantilla.cloneNode(true);
 		quote.id = file.respuesta;
-		right_block.appendChild(quote);
+		right_block.insertBefore(quote, plantilla.getElementsByClassName("footer_post")[0]);
 		
 		let found = getTweetById(tweets_alt, file.respuesta)
 		if(found.length > 0)
