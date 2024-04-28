@@ -229,8 +229,6 @@ function carga_tuits(file, index)
 
 function carga_tuits(file, is_quote)
 {
-	console.log("carga_tuits")
-	console.log(file)
 	let identifier = file.id;
 	let texto = file.texto;
 	
@@ -269,8 +267,7 @@ function carga_tuits(file, is_quote)
 			image_block.appendChild(img);
 		}
 	}
-	
-	generate_engagement(plantilla);
+
 	
 	//date
 	let tweet_date = plantilla.getElementsByClassName("date")[0];
@@ -281,6 +278,8 @@ function carga_tuits(file, is_quote)
 	//insert tweet
 	if(existing_block == null)
 	{
+		generate_engagement(plantilla);
+		
 		if(!is_quote)
 		{
 			let tl = document.getElementById("timeline");
@@ -300,13 +299,9 @@ function carga_tuits(file, is_quote)
 		let found = getTweetById(tweets_alt, file.respuesta)
 		if(found.length > 0)
 		{
-			console.log("found response in array tweets_alt")
-			console.log(found)
 			format_quote(carga_tuits(found[0], true));
 		}else
 		{
-			console.log("response wasn't found in tweets_alt, queuing...")
-			
 			wait_for_quote(file.respuesta);
 		}
 	}
@@ -335,15 +330,11 @@ function carga_tuits_drive()
 	let tweets_storage = JSON.parse(sessionStorage.getItem('tweets_alt'))
 	if(tweets_storage != null && tweets_storage.length > 0){
 		tweets_alt = tweets_storage;
-		console.log("tweets_alt:")
-		console.log(tweets_alt)
 	}
 	
 	tweets_storage = JSON.parse(sessionStorage.getItem('tweets'))
 	if(tweets_storage != null && tweets_storage.length > 0){
 		tweets = tweets_storage;
-		console.log("tweets:")
-		console.log(tweets)
 		load_all_tweets(0);
 	}
 	
@@ -395,15 +386,10 @@ function wait_for_quote(id)
 			tweets_alt = json;
 			sessionStorage.setItem('tweets_alt', JSON.stringify(tweets_alt));
 			
-			console.log("quote received response:")
-			console.log(tweets_alt)
-			
 			if(tweets_alt == null) return;
 			
-			console.log(queue_ids)
 			do{
 				let quote_id = queue_ids.pop();
-				console.log("adding queued response "+quote_id)
 				
 				format_quote(carga_tuits(getTweetById(tweets_alt, quote_id)[0]));				
 				
@@ -462,8 +448,6 @@ function format_date(date_text)
 		let diff = current_date - date;		
 		let daydiff = diff / (1000 * 60 * 60 * 24);   
 		
-		console.log("date_text = "+date_text+", date="+date+", daydiff="+daydiff)
-
 		let format_date = ""
 		if(daydiff < 1)
 		{

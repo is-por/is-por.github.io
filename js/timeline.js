@@ -10,8 +10,6 @@ function carga_config()
 		user_name = "@anonimo_numeritos";
 		sheetURL = json.sheet_url;
 		
-		console.log(sheetURL)
-		
 		update_username(document);
 
 		carga_tuits_drive(true);
@@ -52,7 +50,6 @@ window.onload = (event) =>
     const submitButton = document.getElementById("submit_blorb")
   
     form.addEventListener('submit', e => {
-		console.log(sheetURL)
 	//e.preventDefault();
 	  if (sheetURL == null ) return;
       submitButton.disabled = true

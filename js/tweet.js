@@ -25,6 +25,11 @@ function carga_tuits_drive()
 	let url = window.location.href;
 	url = url.split("#").slice(-1).toString();
 	
+	let tweets_storage = JSON.parse(sessionStorage.getItem('tweets_alt'))
+	if(tweets_storage != null && tweets_storage.length > 0){
+		tweets_alt = tweets_storage;
+	}
+	
 	if(tweets.length > 0)
 	{
 		let tuit = getTweetById(tweets, url)
@@ -107,7 +112,6 @@ function carga_tuits(file)
 }*/
 function carga_tuits(file)
 {
-	console.log(file)
 	let texto = file.texto;
 
 	let all_blocks = document.getElementsByClassName("post_block");
@@ -119,7 +123,6 @@ function carga_tuits(file)
 
 	let tweet = plantilla.getElementsByClassName("tweet_content")[0];
 
-	console.log(texto)
 	//replace endl with <br/> tag
 	texto = texto.replace(/(?:\r\n|\r|\n)/g, "<br/>");
 	tweet.innerHTML = texto;
@@ -136,13 +139,9 @@ function carga_tuits(file)
 		let found = getTweetById(tweets_alt, file.respuesta)
 		if(found.length > 0)
 		{
-			console.log("found response in array tweets_alt")
-			console.log(found)
 			format_quote(carga_tuits(found[0], true));
 		}else
 		{
-			console.log("response wasn't found in tweets_alt, queuing...")
-			
 			wait_for_quote(file.respuesta);
 		}
 	}
