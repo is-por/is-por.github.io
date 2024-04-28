@@ -53,7 +53,7 @@ window.onload = (event) =>
 	//e.preventDefault();
 	  if (sheetURL == null ) return;
       submitButton.disabled = true
-	  let text_input = form.getElementByTagName("textarea");
+	  let text_input = form.getElementsByTagName("textarea")[0];
 	  text_input.value = text_input.value.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 	  if(text_input.value[0] == '=') text_input.value = "'"+text_input.value;
       let requestBody = new FormData(form)
