@@ -183,6 +183,7 @@ window.onload = (event) =>
 	
 	format_date(document);	
 	
+	$("#bottom_menu").load("./bot-menu.html");
 	$("#container_left").load("./left-menu.html"); 
 	$("#container_right").load("./right-menu.html", function(){
 		generate_trends();

@@ -348,6 +348,26 @@ footer{
     margin-left: 4%;
 }
 
+.botbar
+{
+	display: none;
+    backdrop-filter: blur(12px);
+    background-color: rgb(21, 32, 43, 0.75);
+	top: unset;
+    bottom: 0;
+    position: fixed;
+    padding: 5%;
+    height: 30px;
+    width: 100%;
+	cursor: unset;
+	z-index: 2;
+}
+
+.botbar table{
+	width: 90%;
+	text-align:center;
+}
+
 @keyframes spinner-anim 
 {
 	0% 
@@ -380,4 +400,5 @@ footer{
 	.left{ display: none; }
 	.right{ display: none; }
 	.main { width: 100%; }
+	.botbar { display: block;}
 }

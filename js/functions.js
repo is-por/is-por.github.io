@@ -361,7 +361,7 @@ function getTweetById(list, id) {
 function format_quote(quote)
 {
 	if(elm = quote.getElementsByClassName("footer_post")[0]) elm.remove();
-	if(elm = quote.getElementsByClassName("post_link")[0]) elm.removeAttribute("href");
+	if(elm = quote.getElementsByClassName("post_link")[0]) elm.href="./comunidad.html"
 	if(elm = quote.getElementsByClassName("display_name")[0]) elm.innerHTML = "anonimo";
 	if(elm = quote.getElementsByClassName("user_name")[0]) elm.innerHTML = "@anonimo_numeritos";
 	let svgs = quote.getElementsByTagName("svg")
