@@ -99,6 +99,10 @@
 	color: rgb(0, 186, 124);
 }
 
+.footer_post .pressed.greenb{
+	color: rgb(93,238,35);
+}
+
 .footer_post .pressed.yellow{
 	color: rgb(225, 200, 70);
 }
@@ -132,6 +136,11 @@
 .footer_post .green:hover{
 	background-color: rgba(0, 186, 124, 0.1);
 	color: rgb(0, 186, 124);
+}
+
+.footer_post .greenb:hover{
+	background-color: rgba(0, 186, 124, 0.1);
+	color: rgb(93,238,35);
 }
 
 .footer_post .brown:hover{
