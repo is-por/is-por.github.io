@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:base="https://is-por.github.io">
+  <title>eris blog</title>
+  <subtitle>blorb :3</subtitle>
+  <link href="https://maia.crimew.gay/feed.xml" rel="self"/>
+  <link href="https://maia.crimew.gay"/>
+  <updated>2024-07-08T00:00:00Z</updated>
+  <id>https://is-por.github.io/</id>
+  <author>
+    <name>Eris</name>
+  </author>
+  <entry>
+    <title>Impresiones ZZZ</title>
+<summary>why do i even try to do serious journalism anymore</summary><link href="https://is-por.github.io/tweet.html#zzz"/>    <updated>2024-07-08T00:00:00Z</updated>
+    <id>https://is-por.github.io/tweet.html#zzz</id>
+    <content type="html"><![CDATA[<p class="tweet_content">He probado el <b>Zenless Zone Zero</b> y ya lo he desinstalado<br><br>Luce muy bien: los entornos y los modelos son bonitos, tiene diseños más interesantes y únicos que el resto de juegos de mihoyo y el combate se ve espectacular. Pero la clave es esa, <i>*luce*</i>, porque son todo apariencias. El interior es el de un gacha típico de movil, dividido en misiones y con combates aislados.<br><br>Por bonito que sea el overworld no es más que un hub vitaminado de dos calles. Y ese gameplay tan llamativo y que debería ser el punto fuerte del juego, en realidad es simplón a más no poder: tienes dos botones de ataque que machacas todo el rato sin pensar mientras esperas a que un enemigo te ataque para poder hacer un parry, que es el único momento en el que sientes que estás haciendo algo. Los combos son QTE en los que te limitas a pulsar un botón cuando aparece en pantalla, y por vistoso que sea el resultado, dificilmente es satisfactorio. Los enemigos tampoco suponen ninguna dificultad, más allá de ser esponjas de daño si no has leveado a tus personajes lo suficiente, porque atacan 1 vez cada 10 segundos. Y con esto cualquiera que haya jugado un gacha del estilo puede ver el fantasma del powercreep acechando en el horizonte, dónde cada vez habrá enemigos más tanques y necesitarás tirar al gacha y buildear personajes que tengan numeritos más grandes para poder superar las fases dentro del límite de tiempo.<br><br>Y en cuanto a la parte de buildear han usado el pack completo de genshin y star rail con los mismos elementos que farmear: constelaciones, exp de personaje, ascensiones, nivel de skill, arma (amplificador), artefactos (pistas de disco) con stats y substats, y a todo eso se suma otro elemento nuevo, los bangbús... Sinceramente estoy harta.<br><br>No sé si mencionar siquiera la historia de lo que he jugado porque por muy okay-ish que pueda ser el prólogo, nada de lo que ha pasado ahí ni los personajes importan lo más mínimo. Un gacha vive de vender personajes nuevos constantemente, lo que significa que los personajes una vez que han tenido su minuto de gloria van al cajón del olvido, del que únicamente saldrán de manera esporádica para recordar que existen y poco más, porque toca darle el foco al siguiente personaje que vender y así sucesivamente. Es gracioso que en lo poco que he jugado ya he visto un ejemplo de esto, nada más terminar el prólogo que protagonizan Nicole, Anby, Billy y Nekomata y desbloquear la Cavidad Cero, tienes una animación para presentar al siguiente grupo de personajes de forma épica para animarte a tirar por ellos en el gacha.<br><br>Hablar de un juego gacha con foco en la narrativa es casi un oxímoron, porque la propia naturaleza de los gacha actúa en contra de una buena narrativa: ¿qué clase de historia planeas contar si introduces personajes nuevos cada 3 semanas? ¿cómo van a tener desarrollo esos personajes si están destinados a ser de usar y tirar? Y si el propio juego no se compromete con sus personajes y no les da importancia, ¿por qué habría de dársela yo?</p>
+]]></content>
+<media:content url="https://pbs.twimg.com/media/GRy1NOQXUAA6yGM?format=png" type="image/png" expression="full"></media:content>            
+  </entry>
+</feed>
