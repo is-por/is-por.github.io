@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:base="https://is-por.github.io">
   <title>eris blog</title>
   <subtitle>blorb :3</subtitle>
-  <link href="https://maia.crimew.gay/feed.xml" rel="self"/>
-  <link href="https://maia.crimew.gay"/>
+  <link href="https://is-por.github.io/feed.xml" rel="self"/>
+  <link href="https://is-por.github.io"/>
   <updated>2024-07-08T00:00:00Z</updated>
   <id>https://is-por.github.io/</id>
   <author>
