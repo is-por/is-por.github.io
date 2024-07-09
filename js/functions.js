@@ -25,7 +25,7 @@ function follow_button_hover(element, inside)
 {
 	let texts = element.getElementsByTagName("p");
 
-	texts[0].innerHTML = inside ? "Dejar de seguir" : "Seguir";
+	texts[0].innerHTML = inside ? "Dejar de seguir" : "Siguiendo";
 }
 
 function follow_button(element)
