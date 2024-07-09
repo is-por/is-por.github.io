@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:base="https://is-por.github.io">
-  <title>eris blog</title>
-  <subtitle>blorb :3</subtitle>
+  <title>Eris' Blorbs</title>
+  <subtitle>un blog tonto donde comparto lo que pienso. definitivamente no es tuiter</subtitle>
   <link href="https://is-por.github.io/feed.xml" rel="self"/>
   <link href="https://is-por.github.io"/>
   <updated>2024-07-08T00:00:00Z</updated>
