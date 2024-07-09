@@ -193,7 +193,7 @@ th, td{
 	font-weight: bold;
 	color:white;
 	font-size: larger;
-	background-color: rgb(29, 155, 240);
+	background-color: rgb(240, 114, 29);
 	border-color: rgba(0, 0, 0, 0);
 	border-radius: 9999px;
 	transition: background-color 0.2s, color 0.2s;
@@ -201,7 +201,7 @@ th, td{
 
 .commit_button:hover{
 	cursor: pointer;
-	background-color: rgb(9, 135, 220);
+	background-color: rgb(220, 94, 9);
 }
 
 #blorb_menu_button{
@@ -242,7 +242,7 @@ button.nav{
 }
 
 a{
-	color: rgb(29, 155, 240);
+	color: rgb(240, 114, 29);
 	text-decoration: none;
 }
 
@@ -258,7 +258,7 @@ svg{
 
 .verified{
 	max-width: 35px; 
-	color: rgb(29, 155, 240);
+	color: rgb(240, 114, 29);
 	padding-left: 5px;
 }
 
@@ -287,7 +287,7 @@ svg{
 
 .searchbar:focus{
 	outline:none;
-	border: 1px solid rgb(29, 155, 240) !important;
+	border: 1px solid rgb(240, 114, 29) !important;
 	background-color: rgba(21,32,43,1.00);
 }
 
