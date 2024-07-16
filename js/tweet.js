@@ -113,8 +113,6 @@ function carga_tuits(file)
 function carga_tuits(file)
 {
 	let texto = file.texto;
-	
-	console.log(file)
 
 	let all_blocks = document.getElementsByClassName("post_block");
 	let plantilla = all_blocks[all_blocks.length-1];
@@ -149,7 +147,7 @@ function carga_tuits(file)
 	}
 	
 	//tags
-	let tags = plantilla.getElementsByClassName("tweet_tags");
+	let tags = plantilla.getElementsByClassName("tweet_tags")[0];
 	if(file.tags != null && (file.tags.length > 0))
 	{
 		let tag_list = document.createElement("p");
