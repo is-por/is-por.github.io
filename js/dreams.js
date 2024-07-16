@@ -41,10 +41,12 @@ function carga_tuits_drive()
 		if(json.length == 0)
 		{
 			password_block.style.display = "inherit";
+			spinner.style.display = "none";
+		}else{
+			tweets = json;
+			
+			load_all_tweets();
 		}
-		tweets = json;
-		
-		load_all_tweets();
 	})
 	.catch(function(error){console.log(error);});
 }
