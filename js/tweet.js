@@ -113,6 +113,8 @@ function carga_tuits(file)
 function carga_tuits(file)
 {
 	let texto = file.texto;
+	
+	console.log(file)
 
 	let all_blocks = document.getElementsByClassName("post_block");
 	let plantilla = all_blocks[all_blocks.length-1];
