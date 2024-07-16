@@ -198,6 +198,11 @@
 	max-width: 99%;
 }
 
+.tweet_tags p
+{
+	margin-bottom: 0;
+}
+
 .footer_post
 {
 	padding-left: 90px;
@@ -285,7 +290,7 @@
 	text-decoration: none;
 }
 
-
+/*
 .contenedor_imgs {
   width: 100%;
   position: relative;
@@ -385,6 +390,8 @@
 	max-height: 320px;
 }
 
+*/
+
 .compose_block{
 	border-top: 1px solid rgb(56, 68, 77);
 	border-bottom: 1px solid rgb(56, 68, 77);
@@ -409,22 +416,7 @@
 .compose_block textarea:focus-visible{
     outline: 0;
 }
-/*
-@media (max-width:700px){
-	#imagenes img{
-		height: 175px;
-		width: 250px;
-	}
-	
-	.texto{
-		font-size: 11px;
-		line-height: 18px;
-	}
-	
-	#info_personal img{
-		max-height: 125px;
-	}
-} */
+
 
 @media only screen and (max-width: 768px){
 	#profile_pic_block{width: 100px; height: 100px; margin-top: 0px; top: 10px}
