@@ -27,7 +27,7 @@ function carga_tuits_drive()
 	password_block.style.display = "none";
 	
 	let text_input = document.getElementById("password_text");
-	fetch(sheetURL+"?page=1"+"?tag=sueño"+"?pass="+text_input.value+"").then(function(response)
+	fetch(sheetURL+"?tag=sueño"+"&pass="+text_input.value).then(function(response)
 	{
 		return response.json();
 	}).then(function(json) {
