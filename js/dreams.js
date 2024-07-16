@@ -1,4 +1,10 @@
 //Override
+function format_text(txt)
+{	
+	return txt;
+}
+
+//Override
 function carga_config()
 {
 	fetch(config_file).then(function(response)
