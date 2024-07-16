@@ -150,7 +150,7 @@ function carga_tuits(file)
 	
 	//tags
 	let tags = plantilla.getElementsByClassName("tweet_tags");
-	if(file.tags != null && (file.tags.length > 0)
+	if(file.tags != null && (file.tags.length > 0))
 	{
 		let tag_list = document.createElement("p");
 		tags.appendChild(tag_list);
