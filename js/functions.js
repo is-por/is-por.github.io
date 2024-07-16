@@ -278,7 +278,22 @@ function carga_tuits(file, is_quote)
 			image_block.appendChild(img);
 		}
 	}
-
+	
+	//tags
+	let tags = plantilla.getElementsByClassName("tweet_tags")[0];
+	if(file.tags != null && (file.tags.length > 0))
+	{
+		let tag_list = document.createElement("p");
+		tags.appendChild(tag_list);
+		let tags_array = file.tags.replace(/\s/g, '').split(",");
+		for(let i = 0; i < tags_array.length; i++)
+		{
+			let tag = document.createElement("a");
+			tag.innerHTML = "#"+tags_array[i]+" ";
+			tag.href = ".#"+tags_array[i];
+			tag_list.appendChild(tag);
+		}
+	}
 	
 	//date
 	let tweet_date = plantilla.getElementsByClassName("date")[0];
