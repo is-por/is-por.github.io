@@ -281,6 +281,7 @@ function carga_tuits(file, is_quote)
 	
 	//tags
 	let tags = plantilla.getElementsByClassName("tweet_tags")[0];
+	tags.replaceChildren();
 	if(file.tags != null && (file.tags.length > 0))
 	{
 		let tag_list = document.createElement("p");
