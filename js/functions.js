@@ -255,7 +255,7 @@ function carga_tuits(file, is_quote)
 	plantilla.id = identifier;	
 	
 	let post_link = plantilla.getElementsByClassName("post_link")[0];
-	if(post_link != null) post_link.href = "tweet.html#"+identifier;
+	if(post_link != null) post_link.href = "tweet#"+identifier;
 
 	let tweet = plantilla.getElementsByClassName("tweet_content")[0];
 
@@ -372,7 +372,7 @@ function getTweetById(list, id) {
 function format_quote(quote)
 {
 	if(elm = quote.getElementsByClassName("footer_post")[0]) elm.remove();
-	if(elm = quote.getElementsByClassName("post_link")[0]) elm.href="./comunidad.html"
+	if(elm = quote.getElementsByClassName("post_link")[0]) elm.href="./comunidad"
 	if(elm = quote.getElementsByClassName("display_name")[0]) elm.innerHTML = "anonimo";
 	if(elm = quote.getElementsByClassName("user_name")[0]) elm.innerHTML = "@anonimo_numeritos";
 	let svgs = quote.getElementsByTagName("svg")

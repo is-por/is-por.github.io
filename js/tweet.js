@@ -119,7 +119,7 @@ function carga_tuits(file)
 	
 	let identifier = file.id;
 	plantilla.id = identifier;	
-	plantilla.href = "tweet.html#"+identifier;
+	plantilla.href = "tweet#"+identifier;
 
 	let tweet = plantilla.getElementsByClassName("tweet_content")[0];
 
@@ -143,6 +143,22 @@ function carga_tuits(file)
 		}else
 		{
 			wait_for_quote(file.respuesta);
+		}
+	}
+	
+	//tags
+	let tags = plantilla.getElementsByClassName("tweet_tags");
+	if(file.tags != null && (file.tags.length > 0)
+	{
+		let tag_list = document.createElement("p");
+		tags.appendChild(tag_list);
+		let tags_array = file.tags.split(",");
+		for(let i = 0; i < tags_array.length; i++)
+		{
+			let tag = document.createElement("a");
+			tag.innerHTML = "#"+tags_array[i];
+			tag.href = ".#"+tags_array[i];
+			tag_list.appendChild(tag);
 		}
 	}
 	

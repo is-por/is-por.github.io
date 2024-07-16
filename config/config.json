@@ -1,13 +1,5 @@
 {
 	"display_name":"Eris (cansada de vuestras mierdas)",
 	"user_name":"@ispor1",
-	"sheet_url":"https://script.google.com/macros/s/AKfycbwOn14jlcqJlGdhCyevtlfhNNbTmmXai5irlzg-aySec6AVxGwFm8hClj7wc7gDH5AQ/exec",
-	"tweets":
-		[
-			"tweets/tuit.json",
-			"tweets/tuit2.json",
-			"tweets/tuit3.json",
-			"tweets/oneshot.json",
-			"tweets/tuit4.json"
-		]
+	"sheet_url":"https://script.google.com/macros/s/AKfycbwOn14jlcqJlGdhCyevtlfhNNbTmmXai5irlzg-aySec6AVxGwFm8hClj7wc7gDH5AQ/exec"
 }
