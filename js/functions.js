@@ -280,12 +280,13 @@ function carga_tuits(file, is_quote)
 	}
 	
 	//tags
-	let tags = plantilla.getElementsByClassName("tweet_tags")[0];
-	tags.replaceChildren();
-	if(file.tags != null && (file.tags.length > 0))
+	let tags = plantilla.getElementsByClassName("tweet_tags");
+	if(tags.length > 0 && file.tags != null && (file.tags.length > 0))
 	{
+		tags[0].replaceChildren();
+
 		let tag_list = document.createElement("p");
-		tags.appendChild(tag_list);
+		tags[0].appendChild(tag_list);
 		let tags_array = file.tags.replace(/\s/g, '').split(",");
 		for(let i = 0; i < tags_array.length; i++)
 		{
@@ -294,6 +295,7 @@ function carga_tuits(file, is_quote)
 			tag.href = ".#"+tags_array[i];
 			tag_list.appendChild(tag);
 		}
+
 	}
 	
 	//date
