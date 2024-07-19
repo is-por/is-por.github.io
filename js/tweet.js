@@ -171,10 +171,9 @@ function carga_tuits(file)
 	{
 		let img = document.createElement("img");
 		img.src = image_array[i];
-		let img_link = document.createElement("a");
-		img_link.href = image_array[i];
-		img_link.appendChild(img);
-		image_block.appendChild(img_link);
+		img.onclick="window.open('"+image_array[i]+"')";
+		img.style="cursor: pointer";
+		image_block.appendChild(img);
 	}
 	
 	generate_engagement(plantilla);
