@@ -10,6 +10,14 @@
     <name>Eris</name>
   </author>
   <entry>
+    <title>Gestor de mods de Genshin Impact</title>
+<summary>hace poco empecé a jugar con mods y una cosa llevó a la otra... y he acabado programando un gestor visual para hacer más cómodo el proceso</summary><link href="https://is-por.github.io/tweet.html#gi_mods"/>    <updated>2024-08-06T00:00:00Z</updated>
+    <id>https://is-por.github.io/tweet.html#gi_mods</id>
+    <content type="html"><![CDATA[<p><b>HE TERMINADO EL GESTOR DE MODS</b><br><br>Aviso que no es un programa independiente, la idea es que se use junto a <a href="https://github.com/SilentNightSound/GI-Model-Importer/">3dmigoto (o GIMI)</a>, que es el programa que realmente permite ponerle mods al genshin. Mi gestor de mods lo que hace es proporcionar una interfaz gráfica para saber qué mods están activos en cada momento y poder activarlos y desactivarlos de forma rápida y sencilla, y también lanza con un solo botón tanto GIMI como Genshin para jugar con mods.<br><br>La interfaz es simplona y fea, es mi primera app nativa de windows así que please understand y todo eso. Además tampoco valía la pena currármelo mucho para una app tonta que voy a usar yo y si acaso dos personas más.<br><br><br><b><a href="media/GIModManager.exe">DESCARGAR GESTOR DE MODS</a></b><br><br>P.D. para que los mods aparezcan con imagen únicamente arrastrad una a la carpeta del mod</p>
+]]></content>
+<media:content url="https://pbs.twimg.com/media/GUUnoDNXsAA3flI?format=jpg" type="image/jpeg" expression="full"></media:content>            
+  </entry>
+  <entry>
     <title>Diario de sueños</title>
 <summary>dando más usos a la web supongo</summary><link href="https://is-por.github.io/tweet.html#d0"/>    <updated>2024-07-16T00:00:00Z</updated>
     <id>https://is-por.github.io/tweet.html#d0</id>
