@@ -472,6 +472,8 @@ function populate_word_cloud()
 	let url = window.location.href;
 	let valid_sizes = ["x-small", "small", "medium", "large", "x-large", "xx-large", "xxx-large"]
 	
+	word_tags.sort();
+	
 	for(let i = 0; i < word_tags.length; i++)
 	{
 		let tag = document.createElement("a");
