@@ -366,9 +366,7 @@ function carga_tuits(file, is_quote)
 }
 
 function load_all_tweets()
-{
-	word_tags = [];
-	
+{	
 	for(let i = 0 ; i < tweets.length; i++)
 	{
 		if(i < tweets.length)
