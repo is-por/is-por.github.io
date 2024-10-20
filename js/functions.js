@@ -12,7 +12,7 @@ var tweets_alt = [];
 var queue_ids = [];
 var waiting_response = false;
 
-var word_tags = []:
+var word_tags = [];
 
 
 function button_switcher(element)
