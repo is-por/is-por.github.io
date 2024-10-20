@@ -397,7 +397,7 @@ function carga_tuits_drive()
 	}
 	
 	let words_storage = sessionStorage.getItem('word_tags')
-	if(words_storage != null && words_storage.size > 0){
+	if(words_storage != null && words_storage.length > 0){
 		word_tags = words_storage;
 		populate_word_cloud();
 	}
@@ -471,13 +471,14 @@ function populate_word_cloud()
 
 	word_cloud_tag.replaceChildren();
 	
+	let url = window.location.href;
 	let valid_sizes = ["x-small", "small", "medium", "large", "x-large", "xx-large", "xxx-large"]
 	
 	for(let i = 0; i < word_tags.length; i++)
 	{
 		let tag = document.createElement("a");
 		tag.innerHTML = "#"+word_tags[i]+" ";
-		tag.href = ".?reload=1#"+word_tags[i];
+		tag.href = "." + url.includes("?reload=1")? "" : "?reload=1" + "#" +word_tags[i];
 		tag.style.fontSize = valid_sizes[random_number(0, valid_sizes.length)]
 		word_cloud_tag.appendChild(tag);
 	}
