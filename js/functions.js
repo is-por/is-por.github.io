@@ -484,6 +484,15 @@ function populate_word_cloud()
 	}
 }
 
+function search_bar_submit(elm)
+{
+	let bar = elm.getElementsByTagName("input")[0];
+	let input_txt = bar.text;
+	input_txt.replaceAll(" ", "_")
+	elm.action = "./" + url.includes("?reload=1")? "" : "?reload=1" + "#" + input_txt;
+	elm.submit();
+}
+
 function carga_config()
 {
 	fetch(config_file).then(function(response)
