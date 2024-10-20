@@ -489,7 +489,7 @@ function search_bar_submit(elm)
 {
 	let extra = window.location.href.includes("?reload=1") ? "" : "?reload=1";
 	let bar = elm.getElementsByTagName("input")[0];
-	let input_txt = bar.text;
+	let input_txt = bar.value;
 	input_txt.replaceAll(" ", "_")
 	elm.action = "./" + extra + "#" + input_txt;
 	elm.submit();
