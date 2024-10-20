@@ -255,12 +255,16 @@ function carga_tuits(file, is_quote)
 	}
 	
 	//Check if we are looking at a hashtag
-	let hashtag = window.location.href.split("#").slice(-1).toString();
-	(!is_quote && hashtag.length > 0)
-	{
-		if(tags_array.length == 0 || !tags_array.includes(hashtag))
-			return;
-	}
+	let url = window.location.href;
+	if(url.includes("#")){
+		let hashtag = url.split("#").slice(-1).toString();
+		if(!is_quote && hashtag.length > 0)
+		{
+			if(tags_array.length == 0 || !tags_array.includes(hashtag))
+				return;
+		}
+	} 
+	
 	
 	let identifier = file.id;
 	let texto = file.texto;
@@ -462,6 +466,9 @@ function wait_for_quote(id)
 function populate_word_cloud()
 {
 	word_cloud_tag = document.getElementById("word_cloud");
+	
+	word_cloud_tag.replaceChildren();
+	
 	let valid_sizes = ["x-small", "small", "medium", "large", "x-large", "xx-large", "xxx-large"]
 	
 	for(let i = 0; i < word_tags.length; i++)
