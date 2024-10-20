@@ -467,6 +467,8 @@ function populate_word_cloud()
 {
 	word_cloud_tag = document.getElementById("word_cloud");
 	
+	if(word_cloud_tag == null) return;
+
 	word_cloud_tag.replaceChildren();
 	
 	let valid_sizes = ["x-small", "small", "medium", "large", "x-large", "xx-large", "xxx-large"]
