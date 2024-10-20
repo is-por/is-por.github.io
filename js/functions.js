@@ -12,6 +12,8 @@ var tweets_alt = [];
 var queue_ids = [];
 var waiting_response = false;
 
+var word_tags = []:
+
 
 function button_switcher(element)
 {
@@ -240,6 +242,26 @@ function carga_tuits(file, index)
 
 function carga_tuits(file, is_quote)
 {
+	let tags_array = [];
+	
+	if(file.tags != null && (file.tags.length > 0))
+	{
+		tags_array = file.tags.replace(/\s/g, '').split(",");
+		
+		for(let i = 0; i < tags_array.length; i++)
+		{
+			if(!word_tags.includes(tags_array[i])) word_tags.push(tags_array[i]);
+		}
+	}
+	
+	//Check if we are looking at a hashtag
+	let hashtag = window.location.href.split("#").slice(-1).toString();
+	(!is_quote && hashtag.length > 0)
+	{
+		if(tags_array.length == 0 || !tags_array.includes(hashtag))
+			return;
+	}
+	
 	let identifier = file.id;
 	let texto = file.texto;
 	
@@ -281,21 +303,19 @@ function carga_tuits(file, is_quote)
 	
 	//tags
 	let tags = plantilla.getElementsByClassName("tweet_tags");
-	if(tags.length > 0 && file.tags != null && (file.tags.length > 0))
+	if(tags.length > 0 && tags_array.length > 0)
 	{
 		tags[0].replaceChildren();
 
 		let tag_list = document.createElement("p");
 		tags[0].appendChild(tag_list);
-		let tags_array = file.tags.replace(/\s/g, '').split(",");
 		for(let i = 0; i < tags_array.length; i++)
 		{
 			let tag = document.createElement("a");
 			tag.innerHTML = "#"+tags_array[i]+" ";
-			tag.href = ".#"+tags_array[i];
+			tag.href = ".?reload=1#"+tags_array[i];
 			tag_list.appendChild(tag);
 		}
-
 	}
 	
 	//date
@@ -343,19 +363,24 @@ function carga_tuits(file, is_quote)
 
 function load_all_tweets()
 {
+	word_tags = [];
+	
 	for(let i = 0 ; i < tweets.length; i++)
 	{
 		if(i < tweets.length)
 		{
 			carga_tuits(tweets[i]);
 		}
-	}
+	}	
 	let spinner = document.getElementById("loading_block");
 	if( spinner != null) spinner.remove();
+	
+	sessionStorage.setItem('word_tags', word_tags);
+	populate_word_cloud();
 }
 
 function carga_tuits_drive()
-{
+{	
 	let tweets_storage = JSON.parse(sessionStorage.getItem('tweets_alt'))
 	if(tweets_storage != null && tweets_storage.length > 0){
 		tweets_alt = tweets_storage;
@@ -365,6 +390,12 @@ function carga_tuits_drive()
 	if(tweets_storage != null && tweets_storage.length > 0){
 		tweets = tweets_storage;
 		load_all_tweets(0);
+	}
+	
+	let words_storage = sessionStorage.getItem('word_tags')
+	if(words_storage != null && words_storage.size > 0){
+		word_tags = words_storage;
+		populate_word_cloud();
 	}
 	
 	fetch(sheetURL).then(function(response)
@@ -425,6 +456,21 @@ function wait_for_quote(id)
 			}while(queue_ids.length > 0);
 		})
 		.catch(function(error){console.log(error);});
+	}
+}
+
+function populate_word_cloud()
+{
+	word_cloud_tag = document.getElementById("word_cloud");
+	let valid_sizes = ["x-small", "small", "medium", "large", "x-large", "xx-large", "xxx-large"]
+	
+	for(let i = 0; i < word_tags.length; i++)
+	{
+		let tag = document.createElement("a");
+		tag.innerHTML = "#"+tags_array[i]+" ";
+		tag.href = ".?reload=1#"+tags_array[i];
+		tag.style.fontSize = valid_sizes[random_number(0, valid_sizes.length)]
+		word_cloud_tag.appendChild(tag);
 	}
 }
 
