@@ -478,7 +478,8 @@ function populate_word_cloud()
 	{
 		let tag = document.createElement("a");
 		tag.innerHTML = "#"+word_tags[i]+" ";
-		tag.href = "." + url.includes("?reload=1")? "" : "?reload=1" + "#" +word_tags[i];
+		let extra = url.includes("?reload=1") ? "" : "?reload=1";
+		tag.href = "./" + extra + "#" +word_tags[i];
 		tag.style.fontSize = valid_sizes[random_number(0, valid_sizes.length)]
 		word_cloud_tag.appendChild(tag);
 	}
@@ -486,10 +487,11 @@ function populate_word_cloud()
 
 function search_bar_submit(elm)
 {
+	let extra = window.location.href.includes("?reload=1") ? "" : "?reload=1";
 	let bar = elm.getElementsByTagName("input")[0];
 	let input_txt = bar.text;
 	input_txt.replaceAll(" ", "_")
-	elm.action = "./" + url.includes("?reload=1")? "" : "?reload=1" + "#" + input_txt;
+	elm.action = "./" + extra + "#" + input_txt;
 	elm.submit();
 }
 
