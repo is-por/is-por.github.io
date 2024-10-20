@@ -28,6 +28,12 @@ function carga_tuits_drive()
 		load_all_tweets();
 	})
 	.catch(function(error){console.log(error);});
+	
+	let words_storage = sessionStorage.getItem('word_tags')
+	if(words_storage != null && words_storage.length > 0){
+		word_tags = words_storage;
+		populate_word_cloud();
+	}
 }
 
 //Main execution cycle
