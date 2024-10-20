@@ -467,8 +467,8 @@ function populate_word_cloud()
 	for(let i = 0; i < word_tags.length; i++)
 	{
 		let tag = document.createElement("a");
-		tag.innerHTML = "#"+tags_array[i]+" ";
-		tag.href = ".?reload=1#"+tags_array[i];
+		tag.innerHTML = "#"+word_tags[i]+" ";
+		tag.href = ".?reload=1#"+word_tags[i];
 		tag.style.fontSize = valid_sizes[random_number(0, valid_sizes.length)]
 		word_cloud_tag.appendChild(tag);
 	}
