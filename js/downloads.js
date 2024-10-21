@@ -58,12 +58,6 @@ function carga_config()
 
 	})
 	.catch(function(error){console.log(error);});
-	
-	let words_storage = sessionStorage.getItem('word_tags')
-	if(words_storage != null && words_storage.length > 0){
-		word_tags = words_storage.split(",");
-		populate_word_cloud();
-	}
 }
 
 
@@ -80,6 +74,12 @@ window.onload = (event) =>
 	$("#bottom_menu").load("./bot-menu.html");
 	$("#container_left").load("./left-menu.html"); 
 	$("#container_right").load("./right-menu.html", function(){
+		let words_storage = sessionStorage.getItem('word_tags')
+		if(words_storage != null && words_storage.length > 0){
+			word_tags = words_storage.split(",");
+			populate_word_cloud();
+		}
+		
 		generate_trends();
 	
 		//engagement del perfil/tendencias
