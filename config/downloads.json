@@ -1,19 +1,29 @@
 {
     "downloads": [
-        {
+		{
             "name": "GIModManager",
             "path": "./media/downloads/GIModManager.exe",
+            "image": ".media/gestor_v2.jpg"
+        },
+        {
+            "name": "Ramlethal over Xinyan",
+            "path": "./media/downloads/XinyanRamlethal.rar",
+            "image": ".media/xinlethal_final.jpg"
+        },
+        {
+            "name": "Thunderseal over flute",
+            "path": "./media/downloads/Ky_Thunderseal_over_Flute.rar",
             "image": "https://pbs.twimg.com/media/GXXYszYW4AAM4UW?format=jpg"
         },
         {
-            "name": "GIModManager",
-            "path": "./media/downloads/GIModManager.exe",
-            "image": "https://pbs.twimg.com/media/GXXYszYW4AAM4UW?format=jpg"
+            "name": "Sin's flagpole over favonius",
+            "path": "./media/downloads/Sin_Flagpole_over_Favonius.rar",
+            "image": "https://pbs.twimg.com/media/GXXYszvXoAA3bJA?format=jpg"
         },
         {
-            "name": "GIModManager",
-            "path": "./media/downloads/GIModManager.exe",
-            "image": "https://pbs.twimg.com/media/GXXYszYW4AAM4UW?format=jpg"
+            "name": "Outrage over WGS",
+            "path": "./media/downloads/Sol_Outrage_over_WGS.rar",
+            "image": "https://pbs.twimg.com/media/GXRldPfXEAAVAjX?format=jpg"
         }
     ]
 }
