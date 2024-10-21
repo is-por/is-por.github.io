@@ -1,18 +1,18 @@
 {
-    "donwnloads": [
+    "downloads": [
         {
             "name": "GIModManager",
-            "path": "/media/downloads/GIModManager.exe",
+            "path": "./media/downloads/GIModManager.exe",
             "image": "https://pbs.twimg.com/media/GXXYszYW4AAM4UW?format=jpg"
         },
         {
             "name": "GIModManager",
-            "path": "/media/downloads/GIModManager.exe",
+            "path": "./media/downloads/GIModManager.exe",
             "image": "https://pbs.twimg.com/media/GXXYszYW4AAM4UW?format=jpg"
         },
         {
             "name": "GIModManager",
-            "path": "/media/downloads/GIModManager.exe",
+            "path": "./media/downloads/GIModManager.exe",
             "image": "https://pbs.twimg.com/media/GXXYszYW4AAM4UW?format=jpg"
         }
     ]
