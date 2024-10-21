@@ -13,7 +13,7 @@ function carga_downloads()
 		let donwloads_block = document.getElementById("donwloads_block");
 		let orig = document.getElementsByClassName("donwload_item")[0];
 		
-		if(downloads_block == null || template == null)
+		if(downloads_block == null || orig == null)
 		{
 			console.log("Can't populate downloads. Missing template")
 		}	
