@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+#downloads_block
+{
+	display: block;
+}
+
+#downloads_block:hover
+{
+	background-color: inherit;
+	cursor: inherit;
+}
+
+.download_item
+{
+	position: relative;
+	display: inline-block;
+	width: 13.25vw;
+	margin: 15px;
+	border: solid 1px rgb(56, 68, 77);
+	border-radius: 16px;
+	height: 13.25vw;
+	background-size: cover;
+	cursor: pointer;
+}
+
+.download_item div
+{
+	position: relative;
+	height: 100%;
+	width: 100%;
+	border-radius: 15px;
+	background-image: linear-gradient(transparent, rgb(30, 39, 50));
+}
+
+.download_item div:hover {
+	background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgb(30, 39, 50));
+}
+
+.download_title
+{
+	position: absolute;
+	text-align: center;
+	margin: 0;
+	bottom: 20px;
+	width: 100%;
+}
