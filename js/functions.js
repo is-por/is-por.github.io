@@ -60,6 +60,10 @@ function random_number(min, max)
 	return Math.floor(Math.random() * (max - min) ) + min;
 }
 
+function random_sort(a, b) {  
+  return 0.5 - Math.random();
+}  
+
 function randn_bm(min, max, skew) {
   let u = 0, v = 0;
   while(u === 0) u = Math.random() //Converting [0,1) to (0,1)
@@ -472,7 +476,7 @@ function populate_word_cloud()
 	let url = window.location.href;
 	let valid_sizes = ["x-small", "small", "medium", "large", "x-large", "xx-large", "xxx-large"]
 	
-	word_tags.sort();
+	word_tags.sort(random_sort);
 	
 	for(let i = 0; i < word_tags.length; i++)
 	{
