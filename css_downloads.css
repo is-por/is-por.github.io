@@ -17,11 +17,11 @@
 {
 	position: relative;
 	display: inline-block;
-	width: 13.25vw;
+	width: 13vw;
 	margin: 15px;
 	border: solid 1px rgb(56, 68, 77);
 	border-radius: 16px;
-	height: 13.25vw;
+	height: 13vw;
 	background-size: cover;
 	cursor: pointer;
 }
