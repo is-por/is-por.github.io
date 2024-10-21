@@ -3,12 +3,12 @@
 		{
             "name": "GIModManager",
             "path": "./media/downloads/GIModManager.exe",
-            "image": ".media/gestor_v2.jpg"
+            "image": "./media/gestor_v2.jpg"
         },
         {
             "name": "Ramlethal over Xinyan",
             "path": "./media/downloads/XinyanRamlethal.rar",
-            "image": ".media/xinlethal_final.jpg"
+            "image": "./media/xinlethal_final.jpg"
         },
         {
             "name": "Thunderseal over flute",

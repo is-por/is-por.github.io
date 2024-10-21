@@ -42,48 +42,6 @@ function carga_downloads()
 	.catch(function(error){console.log(error);});
 }
 
-/*
-function test_carga_downloads()
-{
-	let rawjson = '{"downloads": [{"name": "GIModManager", "path": "/media/downloads/GIModManager.exe", "image": "https://pbs.twimg.com/media/GXXYszYW4AAM4UW?format=jpg"},{"name": "GIModManager","path": "/media/downloads/GIModManager.exe","image": "https://pbs.twimg.com/media/GXXYszYW4AAM4UW?format=jpg"}]}';
-	
-	let json = JSON.parse(rawjson);
-	
-	console.log(json);
-	
-	downloads = json.downloads;
-	
-	console.log(downloads);
-	
-	let downloads_block = document.getElementById("downloads_block");
-	let orig = downloads_block.getElementsByClassName("download_item")[0];
-	if(orig == null)
-	{
-		console.log("Can't populate downloads. Missing template")
-		return;
-	}	
-	
-	for(let i = 0; i < downloads.length; i++)
-	{
-		let template = orig.cloneNode(true);
-		
-		let dwn_name = downloads[i].name;
-		let dwn_path = downloads[i].path;
-		let dwn_img = downloads[i].image;
-		
-		template.getElementsByClassName("download_title")[0].innerHTML = dwn_name;
-		
-		template.style.backgroundImage = "url('"+ dwn_img +"')";
-		template.style.display = "";
-		
-		template.onclick = function(){window.open(dwn_path);}
-		
-		
-		
-		downloads_block.appendChild(template);
-	}
-}*/
-
 //override
 function carga_config()
 {
@@ -116,8 +74,6 @@ window.onload = (event) =>
 	carga_config();
 	
 	carga_downloads();
-	
-	//test_carga_downloads();
 	
 	format_date(document);	
 	
