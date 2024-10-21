@@ -1,4 +1,4 @@
-var downloads_file = "config/config.json";
+var downloads_file = "config/downloads.json";
 var downloads = [];
 
 function carga_downloads()
