@@ -241,6 +241,10 @@ button.nav{
 	text-decoration: none;
 }
 
+strong{
+	color: rgb(240, 114, 29);
+}
+
 a{
 	color: rgb(240, 114, 29);
 	text-decoration: none;
