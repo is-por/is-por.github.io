@@ -266,6 +266,13 @@
 	padding:15px;
 }
 
+#word_cloud
+{
+	max-height:215px;
+	overflow: clip scroll;
+	scrollbar-width: none;
+}
+
 #word_cloud a
 {
 	padding:2px;
