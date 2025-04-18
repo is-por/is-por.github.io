@@ -399,10 +399,163 @@ footer{
 }
 
 
-
 @media only screen and (max-width: 768px){
 	.left{ display: none; }
 	.right{ display: none; }
 	.main { width: 100%; }
 	.botbar { display: block;}
+}
+
+
+#gronk-overlay{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: rgba(0,0,0,0.8);
+}
+
+#gronk-box{
+	background-color: rgb(21, 32, 43);
+	width: 50%;
+	height: 50%;
+	z-index: 2;
+
+	border: 1px solid rgb(56, 68, 77);
+	border-radius: 15px;
+
+	box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 15px, rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+	padding: 15px;
+
+	display: inline;
+}
+
+#gronk-avatar-box{
+	width: 40%;
+	height: 100%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.gronk-right-box{
+	width: 60%;
+	height: 100%;
+	display: inline-block;
+	float: right;
+}
+
+.gronk-scroll{
+	height: 90%;
+	overflow-y: scroll;
+	padding: 0 3%;
+	
+	display: inline-block;
+}
+
+.gronk-message{
+	/*background-color: grey;*/
+	text-align: left;
+	float: left;
+	width: 80%;
+	
+}
+
+.user-message{
+	text-align: right;
+	float: right;
+	width: 80%;
+}
+
+#gronk-box p{
+	background-color:rgba(255, 255, 255, 0.05);
+	border-radius: 5px;
+	padding: 10px;
+	margin-top: 0;
+	margin-bottom: 15px;
+	
+}
+
+.gronk-button-box{
+	padding: 5px;
+	display: flex;
+	justify-content: space-around;
+	vertical-align: middle;
+}
+
+.gronk-button{
+	color: white;
+	border: 0px solid black;
+	background-color:rgba(255, 255, 255, 0.05);
+	border-radius: 20px;
+	padding: 7.5px 20px;
+	display: flex;
+	justify-content: space-around;
+	font-size: 0.8em;
+}
+
+.gronk-button:hover{
+	cursor: pointer;
+	background-color:rgba(255, 255, 255, 0.2);
+}
+
+.gronk-title-message{
+	display: block;
+	height: 25%;
+	/*overflow: scroll;*/
+
+}
+
+.gronk-title-message .gronk-message{
+	float: none;
+	width: 100%;
+
+}
+
+.gronk-thought{
+	width: 100%;
+
+	text-align: right;
+	width: 100%;
+	display: inline-flex;
+	justify-content: center;
+}
+
+#gronk-box .gronk-thought p{
+	border-radius: 25px;
+	padding: 7.5px;
+}
+
+.gronk-thought-small{
+	width: 12px;
+	height: 12px;
+
+	border-radius: 15px;;
+
+	background-color:rgba(255, 255, 255, 0.05);
+
+	margin-left: 45%;
+}
+
+.gronk-avatar{
+	max-width: 80%;
+	max-height: 60%;
+	aspect-ratio: 1/1;
+}
+
+
+.gronk-avatar img { 
+	cursor: pointer;
+	width: 100%;
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated;                 /* Universal support since 2021   */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
 }

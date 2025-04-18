@@ -51,7 +51,7 @@
     margin-top: -100px;
     left: 25px;
     /* border-width: 51px; */
-    z-index: 1;
+    /*z-index: 1;*/
     position: absolute;
 }
 
@@ -65,7 +65,7 @@
     max-height: 50px;
     margin: 15px 10px 5px 25px;
     position: relative;
-    z-index: 1;
+    /*z-index: 1;*/
 }
 
 #profile_bio_text{
@@ -156,6 +156,7 @@
 
 .tweet_content{
 	margin-bottom: 0;
+	margin-right: 15px;
 }
 
 .tweet_images img{

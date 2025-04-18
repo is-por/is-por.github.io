@@ -57,25 +57,30 @@ window.onload = (event) =>
     const submitButton = document.getElementById("submit_blorb")
   
     form.addEventListener('submit', e => {
-	//e.preventDefault();
-	  if (sheetURL == null ) return;
-      submitButton.disabled = true
-	  let text_input = form.getElementsByTagName("textarea")[0];
-	  text_input.value = text_input.value.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-	  if(text_input.value[0] == '=') text_input.value = "'"+text_input.value;
-      let requestBody = new FormData(form)
-      fetch(sheetURL, { method: 'POST', body: requestBody})
-        .then(response => {
-           //alert('Success!', response)
-           submitButton.disabled = false
-          })
-        .catch(error => {
-        //alert('Error!', error.message)
-        submitButton.disabled = false
-		
-  
-        })
-    })
+		e.preventDefault();
+		if (sheetURL == null ) return;
+		submitButton.disabled = true
+		let text_input = form.getElementsByTagName("textarea")[0];
+		text_input.value = text_input.value.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+		if(text_input.value[0] == '=') text_input.value = "'"+text_input.value;
+		let requestBody = new FormData(form)
+		fetch(sheetURL, { method: 'POST', body: requestBody})
+			.then(response => {
+			//alert('Success!', response)
+				console.log("Message POST: "+response)
+				submitButton.disabled = false;
+
+				window.location.reload();
+			})
+			.catch(error => {
+				//alert('Error!', error.message)
+				console.error("Message POST: "+error.message)
+				submitButton.disabled = false;
+				
+				//window.location.reload();
+			})
+		})
+
 	
 }
 
