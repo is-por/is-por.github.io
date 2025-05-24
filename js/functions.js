@@ -424,17 +424,21 @@ function getTweetById(list, id) {
   );
 }
 
-function format_quote(quote)
+function format_quote(quote, isSelf)
 {
 	if(elm = quote.getElementsByClassName("footer_post")[0]) elm.remove();
-	if(elm = quote.getElementsByClassName("post_link")[0]) elm.href="./comunidad"
-	if(elm = quote.getElementsByClassName("display_name")[0]) elm.innerHTML = "anonimo";
-	if(elm = quote.getElementsByClassName("user_name")[0]) elm.innerHTML = "@anonimo_numeritos";
-	let svgs = quote.getElementsByTagName("svg")
-	while(svgs.length > 0)
-	{
-		svgs[0].remove();
+	if(!isSelf){
+		if(elm = quote.getElementsByClassName("post_link")[0]) elm.href="./comunidad"
+		if(elm = quote.getElementsByClassName("display_name")[0]) elm.innerHTML = "anonimo";
+		if(elm = quote.getElementsByClassName("user_name")[0]) elm.innerHTML = "@anonimo_numeritos";
+		if(elm = quote.getElementsByClassName("profile_img")[0]) elm.style.backgroundImage = "url('./media/default.png')";
+		let svgs = quote.getElementsByTagName("svg")
+		while(svgs.length > 0)
+		{
+			svgs[0].remove();
+		}
 	}
+	
 }
 
 function wait_for_quote(id)
@@ -456,8 +460,16 @@ function wait_for_quote(id)
 			
 			do{
 				let quote_id = queue_ids.pop();
+
+				let quote = getTweetById(tweets_alt, quote_id)[0];
+				let isSelfQuote = false;
+				if(quote == null){
+					quote = getTweetById(tweets, quote_id)[0];
+					isSelfQuote = true;
+				}
+					
 				
-				format_quote(carga_tuits(getTweetById(tweets_alt, quote_id)[0]));				
+				format_quote(carga_tuits(quote), isSelfQuote);				
 				
 			}while(queue_ids.length > 0);
 		})
