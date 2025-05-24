@@ -5,6 +5,7 @@ var config_file = "config/config.json";
 var sheetURL = "";
 var tweet_folder = "tweets/";
 var current_date = Date.now();
+var maxCloudTags = 15;
 var tweets = [];
 var tweets_alt = [];
 
@@ -487,10 +488,24 @@ function populate_word_cloud()
 	
 	let url = window.location.href;
 	let valid_sizes = ["x-small", "small", "medium", "large", "x-large", "xx-large", "xxx-large"]
+
+	//Eliminar el tag de los sueños
+	word_tags = word_tags.filter(function(item){
+		return item !== "sueño";
+	});
+
+	//Ocultar la nube si está vacía
+	if(word_tags.length == 0)
+	{
+		word_cloud_tag.parentElement.style.display = "none";
+		return;
+	}else{
+		word_cloud_tag.parentElement.style.display = "block";
+	}
 	
 	word_tags.sort(random_sort);
 	
-	for(let i = 0; i < word_tags.length; i++)
+	for(let i = 0; i < Math.min(maxCloudTags, word_tags.length); i++)
 	{
 		let tag = document.createElement("a");
 		tag.innerHTML = "#"+word_tags[i]+" ";
