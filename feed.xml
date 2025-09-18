@@ -12,11 +12,12 @@
   <entry>
     <title>Script para ocultar check azules en twitter</title>
     <summary>Me aburría y empecé a programar otra vez</summary>
-    <link href="https://www.eris.wtf/tweet#libros24"/>
+    <link href="https://www.eris.wtf/tweet#script_bluecheck"/>
     <updated>2025-09-17T00:00:00Z</updated>
     <id>https://www.eris.wtf/tweet#script_bluecheck</id>
     <content type="html"><![CDATA[<p>Hoy os traigo otra cosa que he hecho: un script para ocultar posts de cuentas check azul en twitter.<br/><h2><a href="https://gist.github.com/is-por/02b7ef02fb9d67b1576f0d8c1e76d5ef">Link al script</a></h2><br/>Si estáis tan cansados como yo de que ese tipo de cuentas que rara vez aportan nada útil sean priorizadas y te aparezcan en la tl o de sus intentos de monetizar ragebaits, podéis importar el script en Tampermonkey o alguna extensión similar y os ocultará posts y citas a cuentas con check azul. Además, si hay alguna cuenta con check que no queráis ocultar podéis añadirla al script para que la ignore.</p><br/><p>La idea inicial era bastante más bestia: un script que bloquease automáticamente a todo check azul que apareciese en la tl, peeeero a todos a los que les conté la idea no les gustó demasiado porque o bien seguían a alguna cuenta con check, o que si hay cuentas a las que les pusieron el check involuntariamente (cuentas con más de 1 millón de seguidores, creo) y sería injusto, o afectaría a artistas que viven de rrss y pagan el check para subsistir... <br/>Yo no termino de estar de acuerdo con ello (al final lo que pretendía era una herramienta que pudiese impactar en las visualizaciones y alcance de cuentas que considero nocivas, y eso solo se consigue con un block. Si aparece en tu tl, aunque el script lo oculte ya les ha sumado la visualización), pero ocultarlos al menos sirve para reducir tu exposición a esa basura.</p>]]>
 	</content>
+	<media:content url="https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:irmysldqvyko65gooagik63g/bafkreiehmcptr3mnd3me3wqko4ntdi72cytsexlnzg77su6xg7wtgsruwm@jpeg" type="image/jpg" expression="full"></media:content>
   </entry>
   <entry>
     <title>Resumen de lecturas de 2024</title>
