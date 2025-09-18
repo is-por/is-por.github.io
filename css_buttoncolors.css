@@ -192,6 +192,10 @@
   font-size: smaller;
 }
 
+.footer_post svg{
+	cursor: pointer;
+}
+
 
 .reaction_button:hover{
 	cursor: pointer;

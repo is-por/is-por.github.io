@@ -24,6 +24,11 @@
             "name": "Outrage over WGS",
             "path": "./media/downloads/Sol_Outrage_over_WGS.rar",
             "image": "https://pbs.twimg.com/media/GXRldPfXEAAVAjX?format=jpg"
+        },
+		{
+            "name": "Twitter bluecheck remover",
+            "path": "./media/downloads/tw-bluecheck-remover.js",
+            "image": "https://cdn.bsky.app/img/feed_fullsize/plain/did:plc:irmysldqvyko65gooagik63g/bafkreiehmcptr3mnd3me3wqko4ntdi72cytsexlnzg77su6xg7wtgsruwm@jpeg"
         }
     ]
 }
